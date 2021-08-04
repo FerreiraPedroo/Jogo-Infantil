@@ -110,7 +110,7 @@ main {
     display: flex;
     justify-content: center;
     align-self: center;
-    cursor: pointer;
+  
 }
 
 .ui-state-highlight, .ui-widget-content .ui-state-highlight, .ui-widget-header .ui-state-highlight{

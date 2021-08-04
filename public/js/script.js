@@ -28,7 +28,7 @@ class DragDrop {
         }
     }
 
-    get getWordList(){
+    get getWordList() {
         return this.#wordList;
     }
 
@@ -40,28 +40,32 @@ class DragDrop {
 // a função recebe pelo parametro um array com a quantidade de palaras que será inseridas no html.
 function createWordList(_word) {
     // recebe o array com as palavras.
-    let wordList = _word;
-    // variavel que armazenará o html que será inserido na página.
-    let wordHTML = "";
+    const wordList = _word;
 
-    //cria o html da linha da palavra
-    for (let l = 0; l < wordList.length - 1; l++) {
-        wordHTML += `<div id="line-${l} class="list-words>`
-        wordHTML += `<div class="drop">------</div>`
-        // cria o html das letras da palavra
-        for (let w = 1; w < wordList[l].length; w++) {
-            wordHTML += `<div><img src="./images/letter-${wordList[l][w]}.png"></div>`
+    wordList.forEach(element => {
+        //cria o html da linha da palavra
+        //variavel que armazenará o html que será inserido na página.
+        let wordHTML = `
+        <div class="words">
+              <div class="letters-words ui-widget-header drop"></div>
+        `;
+        for (let w = 1; w < element.length; w++) {
+            // cria o html das letras da palavra
+            wordHTML += `
+                <div class="letters-words">
+                            <img src="./images/letter-${element[w]}.png" alt="">
+                 </div>
+                `;
         }
-        wordHTML += `</div>`
-
-    }
-    // inseri a palavra no html.
-    document.getElementById("list").innerHTML = wordHTML;
-
+        wordHTML += `<img class="object" src="./images/${element}.png" alt=""></img>`;
+        wordHTML += `</div>`;
+        // inseri a palavra no html.
+        $("#words-space").append(wordHTML);
+    });
 }
 
 
-createWordList(["vaca", "bolha", "hilo", "bola", "abelha", "beco"]);
+createWordList(["abelha", "navio", "vaca"]);
 
 
 $(".drag").draggable({
