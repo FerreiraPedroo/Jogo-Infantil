@@ -134,6 +134,8 @@ main {
 }
 
 .letters-words img, .letters-words-none img{
+    width: 60%;
+    height: 70%;
     justify-self: center;
     align-self: center;
     
