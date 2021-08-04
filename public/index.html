@@ -8,6 +8,8 @@
     <title>Play</title>
 
     <link rel="stylesheet" href="./css/styles.css">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
 
 </head>
 
@@ -17,13 +19,15 @@
         <div id="dashboard">
             <div id="letters-space">
                 <div class="letters"><img class="letters-object" src="./images/letter-V.png" alt=""></div>
-                <div class="letters-middle"><img class="letters-object" src="./images/letter-A.png" alt=""></div>
+                <div id="letters-middle">
+                    <img class="letters-object ui-widget-content draggable" src="./images/letter-A.png" alt="">
+                </div>
                 <div class="letters"><img class="letters-object" src="./images/letter-N.png" alt=""></div>
 
             </div>
             <div id="words-space">
-                <div class="words">
-                    <div class="letters-words"></div>
+                <div id="droppable" class="words">
+                    <div class="letters-words ui-widget-header"></div>
                     <div class="letters-words">
                         <img src="./images/letter-B.png" alt="">
                     </div>
@@ -66,5 +70,8 @@
         <!-- <img id="character" src="./images/character-cut.png" alt=""> -->
     </main>
 </body>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="./js/script.js"></script>
 
 </html>

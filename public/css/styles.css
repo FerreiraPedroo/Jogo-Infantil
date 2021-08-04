@@ -73,7 +73,7 @@ main {
     justify-content: space-evenly;
 }
 
-.letters, .letters-middle{
+.letters, #letters-middle{
     display: flex;
     justify-content: center;
     width: 40%;
@@ -100,7 +100,7 @@ main {
     align-items: center;
 }
 
-.letters-words{
+.letters-words, .letters-words-none {
     width: 12%;
     height: 70%;
     margin-left: 15px;
@@ -112,7 +112,7 @@ main {
     align-self: center;
 }
 
-.letters-words img{
+.letters-words img, .letters-words-none img{
     justify-self: center;
     align-self: center;
     
