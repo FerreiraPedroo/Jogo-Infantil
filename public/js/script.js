@@ -16,12 +16,10 @@ class DragDrop {
     get getWordList() {
         return this.#wordList;
     }
-
-
 }
 
 // variavel de pontuação
-let punctuation = 0;
+let score = 0;
 const words = ["abelha", "navio", "vaca"];
 const feedbackGame = new Audio("https://audio-previews.elements.envatousercontent.com/files/173295841/preview.mp3?response-content-disposition=attachment%3B+filename%3D%22HL56S7T-bonus-points.mp3%22")
 
@@ -62,7 +60,7 @@ $(".drag").draggable({
     snapTolerance: 40
 });
 
-// const point = new Audio("https://audio-previews.elements.envatousercontent.com/files/151063428/preview.mp3?response-content-disposition=attachment%3B+filename%3D%22NW8FSR4-scoring-a-point.mp3%22");
+// const pointAudio = new Audio("https://audio-previews.elements.envatousercontent.com/files/151063428/preview.mp3?response-content-disposition=attachment%3B+filename%3D%22NW8FSR4-scoring-a-point.mp3%22");
 $(".drop").droppable({
     // evento que ocorre quando o drag é arrastado
     activate: function (event, ui) {
@@ -71,14 +69,14 @@ $(".drop").droppable({
     // evento que ocorre quando o drag é solto no drop
     drop: function (event, ui) {
         $(this).css("background", "#728C0B");
-        const point = new Audio("https://audio-previews.elements.envatousercontent.com/files/151063428/preview.mp3?response-content-disposition=attachment%3B+filename%3D%22NW8FSR4-scoring-a-point.mp3%22");
-        punctuation++
-        if (punctuation >= 3) {
-            feedbackGame.play()
-            return
+        const pointAudio = new Audio("https://audio-previews.elements.envatousercontent.com/files/151063428/preview.mp3?response-content-disposition=attachment%3B+filename%3D%22NW8FSR4-scoring-a-point.mp3%22");
+        score++;
+        if (score >= 3) {
+            feedbackGame.play();
+            return;
         } else {
-            point.play();
-            console.log(punctuation);
+            pointAudio.play();
+            console.log(score);
         }
     }
 });
