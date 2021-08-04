@@ -74,3 +74,6 @@ $(".drag").draggable({
 $(".drop").droppable({
 
 })
+
+
+console.log("teste de fetch")
