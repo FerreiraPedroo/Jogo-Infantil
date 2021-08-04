@@ -112,6 +112,7 @@ main {
     align-self: center;
     cursor: pointer;
 }
+
 .ui-state-highlight, .ui-widget-content .ui-state-highlight, .ui-widget-header .ui-state-highlight{
     border: none;
     background: rgb(78, 153, 3);
@@ -150,7 +151,7 @@ main {
 
 #character {
     position: absolute;
-    height: 280px;
-    left: 1085px;
-    top: 345px;
+    height: 240px;
+    left:87%;
+    top: 61%;
 }
