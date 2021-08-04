@@ -100,7 +100,20 @@ main {
     align-items: center;
 }
 
-.letters-words, .letters-words-none {
+.ui-widget-content{
+    background: none;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    cursor: pointer;
+}
+.ui-state-highlight, .ui-widget-content .ui-state-highlight, .ui-widget-header .ui-state-highlight{
+    border: none;
+    background: rgb(78, 153, 3);
+}
+
+.letters-words, .letters-words-none, .ui-widget-header {
     width: 12%;
     height: 70%;
     margin-left: 15px;
