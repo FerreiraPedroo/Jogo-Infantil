@@ -85,8 +85,8 @@ main {
 }
 .letters-object{
     width: 70%;
-        height: 70%;
-align-self: center;
+    height: 70%;
+    align-self: center;
 }
 
 .letters-middle{
@@ -107,6 +107,15 @@ align-self: center;
     border-radius: 100px;
     background: #F6FED5;
     border: 1px solid #0B4502;
+    display: flex;
+    justify-content: center;
+    align-self: center;
+}
+
+.letters-words img{
+    justify-self: center;
+    align-self: center;
+    
 }
 
 .object{
