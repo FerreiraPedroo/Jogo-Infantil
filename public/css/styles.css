@@ -116,6 +116,9 @@ main {
 .ui-state-highlight, .ui-widget-content .ui-state-highlight, .ui-widget-header .ui-state-highlight{
     border: none;
     background: rgb(78, 153, 3);
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
+
 }
 
 .letters-words, .letters-words-none, .ui-widget-header {
