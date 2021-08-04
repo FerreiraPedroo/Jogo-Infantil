@@ -1,8 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Rammetto+One&display=swap');
 
 html,body{
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height:100vh;
     font-family: 'Rammetto One', cursive;
     margin: 0;
     padding: 0;
@@ -10,6 +10,8 @@ html,body{
 }
 
 body {
+    width: 100%;
+    height:100%;
     background-image: url("../images/ambiente-4.png") ;
     background-repeat: no-repeat;
     background-size: cover;
@@ -34,4 +36,8 @@ main {
     -webkit-text-stroke-width: 3px; /* largura da borda */
     -webkit-text-stroke-color: #0B4502; /* cor da borda */
 
+}
+#back {
+    cursor: pointer;
+    position: fixed;
 }
