@@ -24,6 +24,8 @@ main {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    max-width: 1400px;
+    min-width: 1000px;
 }
 
 #instruction{
@@ -53,7 +55,7 @@ main {
 
 #letters-space, #words-space{
     background-color: #C2D37E;
-    border: 2px solid #0B4502;
+    border: 2px solid #677E0C;
     border-radius: 20px;
 }
 
@@ -82,7 +84,7 @@ main {
     margin-left: 10%;
     border-radius: 100px;
     background: #F6FED5;    
-    border: 1px solid #0B4502;
+    border: 1px solid #677E0C;
 }
 #letters-middle{
     margin-left: 50%;
@@ -127,7 +129,7 @@ main {
     margin-left: 15px;
     border-radius: 100px;
     background: #F6FED5;
-    border: 1px solid #0B4502;
+    border: 1px solid #677E0C;
     display: flex;
     justify-content: center;
     align-self: center;
@@ -159,4 +161,40 @@ main {
     height: 240px;
     left:87%;
     top: 61%;
+}
+#progressbar {
+    width: 300px;
+    height: 35px;
+    display: flex;
+    justify-content: left;
+    align-self: center;
+    position: absolute;
+    left:75%;
+    top: 1%;
+    z-index: -50px;
+}
+
+.ui-progressbar, .ui-progressbar-complete{
+    background: #F9D4B2;
+    border: 3px solid #FF7E05;
+    box-sizing: border-box;
+    border-radius: 30px;
+}
+
+.ui-progressbar .ui-progressbar-value {
+    border: none;
+    align-self: flex-start;
+
+}
+.ui-widget.ui-widget-content{
+    border: 3px solid #FF7E05;
+}
+
+.ui-progressbar-value{
+    background: #FF7E05;
+    align-self: center;
+}
+
+.progress-label{
+    align-self: flex-start;
 }
