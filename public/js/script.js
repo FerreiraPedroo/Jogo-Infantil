@@ -13,11 +13,6 @@
 
 // });
 
-
-
-
-
-
 class DragDrop {
     #wordList;
 
