@@ -48,6 +48,7 @@ main {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    color: #FF3451;
 }
 
 #syllable-one, #syllable-two, #syllable-three, #syllable-four, #syllable-five, #syllable-six, #syllable-seven{
@@ -251,6 +252,7 @@ main {
     border: none;
     height: 100%;
 }
+
 .ui-widget.ui-widget-content{
     border: 3px solid #FF7E05;
 }
@@ -407,7 +409,7 @@ main {
     margin-left: 10px;
     justify-content: center;
     align-content: center;
-  
+
 }
 .figures-animals img{
     width: 70%;
