@@ -1,4 +1,4 @@
-const words = ["abelha", "navio", "vaca"];
+const words = ["abelha", "navio", "vaca","pata","iguana","rato","gato","raposa","elefante","giraffa"];
 const letterAlphabet = "abcdefghijklmnopqrstuvwxyz";
 const letterDrag = [];
 // amount of drag letter on html

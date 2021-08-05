@@ -1,3 +1,4 @@
+const words = ["abelha", "navio", "vaca"]
 // variavel de pontuação
 let score = 0;
 const musicGame = new Audio("./music/theme-music.mp3");
