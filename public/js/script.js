@@ -121,3 +121,36 @@ function victory() {
 
 scoreUpdate()
 
+
+const letterAlphabet = "abcdefghijklmnopqrstuvwxyz";
+const letterDrag = [];
+// amount of drag letter on html
+const letterNumberDrag = (words.length * 2);
+
+// create list of drag letters
+function createDragLetter(_words) {
+    let words = _words;
+    let randomLetterPosition;
+    let randomLetterQtd = 0;
+
+    do {
+        randomLetterPosition = Math.floor(Math.random() * letterNumberDrag);
+
+        if (letterDrag[randomLetterPosition] == undefined && randomLetterQtd < words.length) {
+            letterDrag[randomLetterPosition] = words[randomLetterQtd][0];
+            randomLetterQtd++
+        }
+
+        if (letterDrag[randomLetterPosition] == undefined && randomLetterQtd >= words.length) {
+            let letterSelected = letterAlphabet[Math.floor(Math.random() * letterAlphabet.length)];
+            if (letterDrag.indexOf(letterSelected) == -1) {
+                letterDrag[randomLetterPosition] = letterSelected;
+                randomLetterQtd++
+            }
+        }
+    }
+    while (randomLetterQtd < letterNumberDrag);
+    console.table(letterDrag)
+
+}
+createDragLetter(words)
