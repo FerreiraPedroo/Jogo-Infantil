@@ -28,7 +28,7 @@ main {
     min-width: 1000px;
 }
 
-#instruction{
+.instruction{
     margin: 0;
     padding: 0;
     font-family: Rammetto One;
@@ -54,7 +54,7 @@ main {
 }
 
 #letters-space, #words-space{
-    background-color: #C2D37E;
+    background-color: #DEEAAF;
     border: 2px solid #677E0C;
     border-radius: 20px;
 }
@@ -126,7 +126,6 @@ main {
 .letters-words, .letters-words-none, .ui-widget-header {
     width: 12%;
     height: 70%;
-    margin-left: 15px;
     border-radius: 100px;
     background: #F6FED5;
     border: 1px solid #677E0C;
@@ -184,6 +183,7 @@ main {
 
 .ui-progressbar .ui-progressbar-value {
     border: none;
+    height: 100%;
 }
 .ui-widget.ui-widget-content{
     border: 3px solid #FF7E05;

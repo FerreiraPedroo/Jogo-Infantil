@@ -58,7 +58,8 @@ $(".drag").draggable({
     revert: "invalid",
     snap: ".drop",
     snapMode: "inner",
-    snapTolerance: 40
+    snapTolerance: 40,
+    tolerance : "touch"
 });
 
 words.forEach((elements) => {
