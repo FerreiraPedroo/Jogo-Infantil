@@ -30,7 +30,7 @@ words.forEach((elements) => {
             $(this).droppable({
                 disabled: true
             })
-
+            
             const pointAudio = new Audio("https://audio-previews.elements.envatousercontent.com/files/151063428/preview.mp3?response-content-disposition=attachment%3B+filename%3D%22NW8FSR4-scoring-a-point.mp3%22");
             score += 30;
             if (score >= 90) {
