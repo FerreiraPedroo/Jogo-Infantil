@@ -1,15 +1,9 @@
-const words = ["abelha", "navio", "vaca","pata","iguana","rato","gato","raposa","elefante","giraffa"];
-const letterAlphabet = "abcdefghijklmnopqrstuvwxyz";
-const letterDrag = [];
-// amount of drag letter on html
-const letterNumberDrag = (words.length * 2);
-
-
 //------------- a função recebe pelo parametro um array com a quantidade de palaras que será inseridas no html. -------------
-function createWordList(_word) {
+export function createWordList(_word) {
+    const words = ["abelha", "navio", "vaca"];
+
     // ------------- recebe o array com as palavras. -------------
-    const wordList = _word;
-    musicGame.play
+    const wordList = words;
     wordList.forEach(element => {
         //------------- cria o html da linha da palavra -------------
         // ------------- variavel que armazenará o html que será inserido na página.-------------
@@ -33,10 +27,17 @@ function createWordList(_word) {
 }
 
 
-
 // create list of drag letters
-function createDragLetter(_words) {
-    let words = _words;
+export function createDragLetter(_words) {
+
+    const words = ["abelha", "navio", "vaca"];
+    const letterAlphabet = "abcdefghijklmnopqrstuvwxyz";
+    const letterDrag = [];
+    // amount of drag letter on html
+    const letterNumberDrag = (words.length * 2);
+
+
+    //let words = _words;
     let randomLetterPosition;
     let randomLetterQtd = 0;
 
@@ -60,5 +61,5 @@ function createDragLetter(_words) {
     console.table(letterDrag)
 
 }
-createDragLetter(words)
-createWordList(words);
+
+//export { createWordList, createDragLetter };

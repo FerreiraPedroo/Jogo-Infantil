@@ -1,3 +1,6 @@
+import { DragDropClass } from './letter-script-class.js'
+import { createWordList, createDragLetter } from './letter-script.js'
+
 const words = ["abelha", "navio", "vaca"]
 // variavel de pontuação
 let score = 0;
@@ -72,3 +75,5 @@ function victory() {
 }
 
 scoreUpdate()
+createDragLetter()
+createWordList()
