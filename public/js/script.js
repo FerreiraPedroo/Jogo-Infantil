@@ -7,6 +7,10 @@ let score = 0;
 const musicGame = new Audio("./music/theme-music.mp3");
 const feedbackGame = new Audio("https://audio-previews.elements.envatousercontent.com/files/173295841/preview.mp3?response-content-disposition=attachment%3B+filename%3D%22HL56S7T-bonus-points.mp3%22")
 
+scoreUpdate()
+createDragLetter()
+createWordList()
+
 $(".drag").draggable({
     cursor: "grabbing",
     revert: "invalid",
@@ -74,6 +78,3 @@ function victory() {
     $("#character").css("display", "none");
 }
 
-scoreUpdate()
-createDragLetter()
-createWordList()
