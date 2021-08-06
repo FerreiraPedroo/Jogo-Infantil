@@ -1,12 +1,14 @@
 import { DragDropClass } from './letter-script-class.js'
 import { createWordList, createDragLetter } from './letter-script.js'
+import {phase1, phase2, victoryScreen} from './pages.js'
 
 const words = ["abelha", "navio", "vaca"];
 const animals = ["pato", "sapo", "jacare", "cachorro", "arara", "gato"];
 const musicGame = new Audio("../music/theme-music.mp3");
 const feedbackGame = new Audio("../music/feedback-game.mp3");
-const pointAudio = new Audio("../music/points-audio.mp3");
+const pointAudio = "../music/points-audio.mp3";
 let score = 0;
+const music = new Audio();
 
 $(document).ready(() => {
 
@@ -44,9 +46,9 @@ $(document).ready(() => {
 
                     //  ----------- SCORE -----------
                     $(".score").show()
-                        .animate({ top: '100px' }, "slow")
-                        .animate({ fontSize: '3em' }, "slow")
-                       .hide(1000)
+                        .animate({ top: '5px' }, "slow")
+                        .animate({ bottom: '100px' }, "fast")
+                        .hide(1500)
                     //  -----------------------------
 
                     //  ----------- CHECKING THE PHASE -----------
@@ -63,7 +65,8 @@ $(document).ready(() => {
                         victory(_phase);
                         return;
                     } else {
-                        pointAudio.play();
+                        // pointAudio.play();
+                        sound(pointAudio);
                         scoreUpdate(score);
                     };
                     //  ------------------------------------------
@@ -87,20 +90,7 @@ $(document).ready(() => {
 
     // --------------------------------- CREATE WIN SCREEN ---------------------------------
     function victory(_phase) {
-        $("body").append(`
-        <div id="feedback-user">
-            <div id="result">
-                <p>VITÓRIA!!!</p>
-                <div id="stars">
-                    <img src="./images/star.png" width="80px" />
-                    <img src="./images/star.png" width="80px" />
-                    <img src="./images/star.png" width="80px" />
-                 </div>
-                <button id="next">Próxima</button>
-             </div>
-            <img id="character-feedback" src="./images/character.png">
-        </div>
-        `);
+        $("body").append(victoryScreen);
         $("#character").hide(1000);
 
         //  ----------- NEXT PHASE -----------
@@ -117,71 +107,7 @@ $(document).ready(() => {
 
     // ---------------------------------  CREATE SECOND PHASE HTML ---------------------------------
     function createSecondPhase() {
-        $("main").html(`
-        <div class="phase-2">
-        <p class="instruction">AJUDE A ENCONTRAR O ANIMAL!</p>
-        <div class="container">
-            <div class="figures">
-                <div class="figures-animals">
-                    <img class="drag pato" src="./images/pato-2.png" />
-                </div>
-                <div class="figures-animals">
-                    <img class="drag gato" src="./images/gato.png" style="width: 80%;" />
-                </div>
-                <div class="figures-animals">
-                    <img class="drag cachorro" src="./images/cachorro.png" />
-                </div>
-                <div class="figures-animals ">
-                    <img class="drag coelho" src="./images/coelho.png" />
-                </div>
-                <div class="figures-animals ">
-                    <img class="drag jacare" src="./images/jacare.png" />
-                </div>
-                <div class="figures-animals">
-                    <img class="drag sapo" src="./images/sapo2.png" />
-                </div>
-                <div class="figures-animals">
-                    <img class="drag arara" src="./images/arara.png" />
-                </div>
-            </div>
-            <div class="space-animals">
-                <div id="space-one">
-                    <div class="spaces">
-                        <div class="drop-animal drop_pato"></div>
-                        <p class="animal">PATO</p>
-                    </div>
-                    <div class="spaces">
-                        <div class="drop-animal drop_cachorro"></div>
-                        <p class="animal">CACHORRO</p>
-                    </div>
-                </div>
-                <div id="space-two">
-                    <div class="spaces">
-                        <div class="drop-animal drop_sapo"></div>
-                        <p class="animal">SAPO</p>
-                    </div>
-                    <div class="spaces">
-                        <div class="drop-animal drop_arara"></div>
-                        <p class="animal">ARARA</p>
-                    </div>
-                </div>
-                <div id="space-three">
-                    <div class="spaces">
-                        <div class="drop-animal drop_jacare"></div>
-                        <p class="animal">JACARÉ</p>
-                    </div>
-                    <div class="spaces">
-                        <div class="drop-animal drop_gato"></div>
-                        <p class="animal">GATO</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="progressbar"></div>
-        <img id="coin" src="./images/coin-1.png" />
-        <img class="back" src="./images/back.png" alt="">
-    </div>
-        `);
+        $("main").html(phase2);
         scoreUpdate(score);
         createDropAndDrag(animals, 2);
     };
@@ -195,41 +121,13 @@ $(document).ready(() => {
 
     // ---------------------------------  CREATE FIRST PHASE HTML ---------------------------------
     $("main").on("click", "#start-game", () => {
-        $("main").html(`
-        <div class="phase-1">
-                <p class="instruction">AJUDE A COMPLETAR A PALAVRA!</p>
-                <div class="dashboard">
-                    <div id="letters-space">
-                        <div class="letters">
-                            <img class="letters-object drag vaca" src="./images/letter-V.png" alt="">
-                        </div>
-                        <div id="letters-middle">
-                            <img class="letters-object ui-widget-content draggable drag abelha" src="./images/letter-A.png"
-                                alt="">
-                        </div>
-                        <div class="letters">
-                            <img class="letters-object drag navio" src="./images/letter-N.png" alt="">
-                        </div>
-        
-                    </div>
-                    <div id="words-space">
-                    </div>
-                </div>
-                <img class="back" src="./images/back.png" alt="">
-                <img id="character" src="./images/character.png" alt="">
-                <p class="score">+1</p>
-                <div id="score-bar "> 
-                <img id="coin" src="./images/coin-1.png" />
-                <div class="progressbar"></div>
-                </div>
-            </div>
-        `);
+        $("main").html(phase1);
         musicGame.play();
         musicGame.loop = true;
 
         scoreUpdate(score);
-        createDragLetter();
-        createWordList();
+        createDragLetter(words);
+        createWordList(words);
         createDropAndDrag(words, 1);
     });
     // ---------------------------------------------------------------------------------------------
@@ -253,11 +151,11 @@ $(document).ready(() => {
     // ---------------------------------  EFFECTS CONTROLS ----------------------------------
     $("#audio-effects").click(() => {
         if (pointAudio.muted) {
-            pointAudio.muted = false;
+            music.muted = false;
             feedbackGame.muted = false;
             $("#audio-effects").attr("src", "./images/mute.png");
         } else {
-            pointAudio.muted = true;
+            music.muted = true;
             feedbackGame.muted = true;
             $("#audio-effects").attr("src", "./images/muted.png");
         }
@@ -276,10 +174,19 @@ $(document).ready(() => {
     });
     // -----------------------------------------------------------------------------------
 
-    // -----------------------------------------------------------------------------------
+    // -------------------------------- AJAX ----------------------------------
 
-    function sendInfoUser(_score){
-        $.post(("url"), _score,(_data)=>{});
-    }
+    function sendInfoUser(_score) {
+        $.post(("url"), _score, (_data) => { });
+    };
+
+    // -------------------------------------------------------------------------
+
+    // -------------------------------- AUDIO ----------------------------------
+    function sound(_music) {
+        music.src = _music;
+        music.play();
+    };
+    // -------------------------------------------------------------------------
 });
 

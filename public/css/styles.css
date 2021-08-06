@@ -256,6 +256,7 @@ main{
 }
 .score{
     display: none;
+    position: absolute;
     color: #FCFFEE;
     position: absolute;
     font-size: 40px;
