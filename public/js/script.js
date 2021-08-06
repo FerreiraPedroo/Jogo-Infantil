@@ -52,7 +52,7 @@ $(document).ready(() => {
                     $(".score").show()
                         .animate({ top: '5px' }, "slow")
                         .animate({ bottom: '100px' }, "fast")
-                        .hide(1500)
+                        .hide(1500);
                     //  -----------------------------
 
                     //  ----------- CHECKING THE PHASE -----------
@@ -70,7 +70,6 @@ $(document).ready(() => {
                         victory(_phase);
                         return;
                     } else {
-                        // pointAudio.play();
                         sound(pointAudio);
                         scoreUpdate(score);
                     };
