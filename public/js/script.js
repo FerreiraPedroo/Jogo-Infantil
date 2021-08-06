@@ -1,14 +1,18 @@
 import { DragDropClass } from './letter-script-class.js'
 import { createWordList, createDragLetter } from './letter-script.js'
-import {phase1, phase2, victoryScreen} from './pages.js'
+import { phase1, phase2, victoryScreen } from './pages.js'
 
 const words = ["abelha", "navio", "vaca"];
 const animals = ["pato", "sapo", "jacare", "cachorro", "arara", "gato"];
-const musicGame = new Audio("../music/theme-music.mp3");
-const feedbackGame = new Audio("../music/feedback-game.mp3");
-const pointAudio = "../music/points-audio.mp3";
-let score = 0;
+
+const musicGame = new Audio("./music/theme-music.mp3");
+const feedbackGame = new Audio("./music/feedback-game.mp3");
+const pointAudio = "./music/points-audio.mp3";
+
 const music = new Audio();
+musicGame.play();
+
+let score = 0;
 
 $(document).ready(() => {
 
@@ -60,6 +64,7 @@ $(document).ready(() => {
                         score = 100;
                         feedbackGame.play();
                         // ------- UPDATE SCORE --------
+                        sendInfoUser(score);
                         scoreUpdate(score);
                         // ------- CREAT SCREEN VICTORY --------
                         victory(_phase);
@@ -79,11 +84,9 @@ $(document).ready(() => {
 
     // --------------------------------- UPDATE PROGRESS BAR ---------------------------------
     function scoreUpdate(_score) {
-        $(function () {
             $(".progressbar").progressbar({
                 value: _score
             });
-        });
     };
     // ---------------------------------------------------------------------------------------
 
@@ -150,7 +153,7 @@ $(document).ready(() => {
 
     // ---------------------------------  EFFECTS CONTROLS ----------------------------------
     $("#audio-effects").click(() => {
-        if (pointAudio.muted) {
+        if (music.muted) {
             music.muted = false;
             feedbackGame.muted = false;
             $("#audio-effects").attr("src", "./images/mute.png");
@@ -177,7 +180,13 @@ $(document).ready(() => {
     // -------------------------------- AJAX ----------------------------------
 
     function sendInfoUser(_score) {
-        $.post(("url"), _score, (_data) => { });
+        let scorePlayer = {
+            score : _score
+        }
+        console.log(_score);
+        $.post(("/score"), scorePlayer, (_data) => { 
+            console.log(_data);
+        });
     };
 
     // -------------------------------------------------------------------------
