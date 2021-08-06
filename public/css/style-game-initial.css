@@ -1,0 +1,45 @@
+* {
+  border:1px solid blue;
+}
+
+#game-initial{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.arrow {
+    display:flex;
+    align-items: center;
+}
+#character-select-img{
+    display: flex;
+    align-items: center;
+
+    padding: 50px;
+    border-radius: 20px;
+    background: rgba(37, 42, 43, 0.5)
+}
+#button-initial{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 288px;
+    height: 106px;
+
+    font-size: 30px;
+    color: white;  
+    border:10px solid black;
+    margin-top: 30px;
+
+
+    border-radius: 30px;
+    background-color: #FF7E05;
+    border:6px solid white;
+}
+.arrow:hover, #button-initial:hover{
+    cursor:pointer;
+}

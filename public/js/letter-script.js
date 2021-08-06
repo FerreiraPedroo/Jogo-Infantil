@@ -1,8 +1,10 @@
 //------------- a função recebe pelo parametro um array com a quantidade de palaras que será inseridas no html. -------------
 export function createWordList(_word) {
-    const words = ["abelha", "navio", "vaca"];
+    console.log(_word)
+    const words = _word
+    //const words = ["abelha", "navio", "vaca"];
 
-    // ------------- recebe o array com as palavras. -------------
+    // ------------- receive array with words -------------
     const wordList = words;
     wordList.forEach(element => {
         //------------- cria o html da linha da palavra -------------
@@ -21,45 +23,19 @@ export function createWordList(_word) {
         }
         wordHTML += `<img class="object" src="./images/${element}.png" alt=""></img>`;
         wordHTML += `</div>`;
-        //------------- insere a palavra no html. -------------
+        //------------- insert words in html. -------------
         $("#words-space").append(wordHTML);
     });
 }
-
-
-// create list of drag letters
-export function createDragLetter(_words) {
-
-    const words = ["abelha", "navio", "vaca"];
-    const letterAlphabet = "abcdefghijklmnopqrstuvwxyz";
-    const letterDrag = [];
-    // amount of drag letter on html
-    const letterNumberDrag = (words.length * 2);
-
-
-    //let words = _words;
-    let randomLetterPosition;
-    let randomLetterQtd = 0;
-
-    do {
-        randomLetterPosition = Math.floor(Math.random() * letterNumberDrag);
-
-        if (letterDrag[randomLetterPosition] == undefined && randomLetterQtd < words.length) {
-            letterDrag[randomLetterPosition] = words[randomLetterQtd][0];
-            randomLetterQtd++
-        }
-
-        if (letterDrag[randomLetterPosition] == undefined && randomLetterQtd >= words.length) {
-            let letterSelected = letterAlphabet[Math.floor(Math.random() * letterAlphabet.length)];
-            if (letterDrag.indexOf(letterSelected) == -1) {
-                letterDrag[randomLetterPosition] = letterSelected;
-                randomLetterQtd++
-            }
-        }
+export function createDragLetter(_letters) {
+    let letters = _letters;
+    let letterHTML = "";
+    for (let l = 0; l < letters.length; l++) {
+        letterHTML += `
+        <div class="letters">
+            <img class="letters-object drag" src="./images/letter-${letters[l]}.png" alt="">
+        </div>
+        `;
     }
-    while (randomLetterQtd < letterNumberDrag);
-    console.table(letterDrag)
-
+    return letterHTML;
 }
-
-//export { createWordList, createDragLetter };
