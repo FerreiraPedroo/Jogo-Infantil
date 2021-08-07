@@ -1,0 +1,50 @@
+*{
+ /* border: 1px solid yellow;*/
+}
+
+.select-phase{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.phase{
+    display: flex;
+
+    width: 262px;
+    height: 262px;
+    margin: 32px;
+
+
+    border-radius: 130px;
+    border:3px solid #117800;
+
+    background-color: #C2D37E;
+}
+
+
+.icone-lock{
+    position:relative;
+    top: 150px;
+}
+.icone-star{
+    display: flex;
+    width: 32px;
+
+    position:relative;
+    left: 75px;
+    top: 200px;
+}
+
+.select-phase-stars{
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+
+   /* border-color: red;*/
+
+}
+
+.select-phase-lock{
+   /* border-color: royalblue;*/
+
+}
