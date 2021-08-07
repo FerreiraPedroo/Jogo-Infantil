@@ -65,7 +65,7 @@ $(document).ready(() => {
                         score = 100;
                         feedbackGame.play();
                         // ------- UPDATE SCORE --------
-                        sendInfoUser(score);
+                        sendInfoUser(score, _phase);
                         scoreUpdate(score);
                         // ------- CREAT SCREEN VICTORY --------
                         victory(_phase);
@@ -181,8 +181,10 @@ $(document).ready(() => {
 
     // -------------------------------- AJAX ----------------------------------
 
-    function sendInfoUser(_score) {
+    function sendInfoUser(_score, _phase) {
         scorePlayer.score = _score;
+        scorePlayer.phase = _phase;
+
         console.log(scorePlayer);
         $.post(("/score"), scorePlayer, (_data) => {
             console.log(_data);
