@@ -13,6 +13,7 @@
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+    outline: none;
 }
 
 html,body{
@@ -74,6 +75,21 @@ main{
 #syllable-one, #syllable-two, #syllable-three, #syllable-four, #syllable-five, #syllable-six, #syllable-seven{
     -webkit-text-stroke-width: 1px; 
     -webkit-text-stroke-color: #101212; 
+}
+
+#name-user{
+    border: 1px solid #D9AC36;
+    background: #FFF7E1;
+    width: 250px;
+    height: 5%;
+    border-radius: 11px;
+    margin-bottom: 20px;
+    padding-left:10px ;
+    font-family: 'Slackey', cursive;
+}
+
+#name-user::placeholder{
+    padding-left: 10px;
 }
 
 #start-game{

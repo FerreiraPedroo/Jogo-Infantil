@@ -10,9 +10,10 @@ const feedbackGame = new Audio("./music/feedback-game.mp3");
 const pointAudio = "./music/points-audio.mp3";
 
 const music = new Audio();
-musicGame.play();
+musicGame.play()
 
 let score = 0;
+let scorePlayer;
 
 $(document).ready(() => {
 
@@ -122,10 +123,13 @@ $(document).ready(() => {
     // ---------------------------------------------------------------------------------------------
 
     // ---------------------------------  CREATE FIRST PHASE HTML ---------------------------------
-    $("main").on("click", "#start-game", () => {
+    $("#start-game").on("click", () => {
         $("main").html(phase1);
         musicGame.play();
         musicGame.loop = true;
+
+        console.log($("input").val());
+        // scorePlayer.name = $("#name-user").val();
 
         scoreUpdate(score);
         createDragLetter(words);
@@ -179,10 +183,8 @@ $(document).ready(() => {
     // -------------------------------- AJAX ----------------------------------
 
     function sendInfoUser(_score) {
-        let scorePlayer = {
-            score : _score
-        }
-        console.log(_score);
+         scorePlayer.score = _score;
+        console.log(scorePlayer);
         $.post(("/score"), scorePlayer, (_data) => { 
             console.log(_data);
         });
