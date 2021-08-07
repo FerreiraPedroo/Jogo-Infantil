@@ -3,7 +3,7 @@ const app = express();
 const bodyParser = require("body-parser");
 const path = require('path');
 const PORT = 8080;
-let score;
+let playerData;
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -27,8 +27,7 @@ app.get('/', (req, res, next) => {
 });
 
 app.post('/score', (req, res) => {
-    score = req.body.score;
-    console.log(score);
+    playerData = req.body;
     res.send("ENVIADO")
 
 });

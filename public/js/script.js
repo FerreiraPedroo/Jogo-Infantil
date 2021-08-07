@@ -13,7 +13,7 @@ const music = new Audio();
 musicGame.play()
 
 let score = 0;
-let scorePlayer;
+let scorePlayer = {};
 
 $(document).ready(() => {
 
@@ -51,9 +51,9 @@ $(document).ready(() => {
 
                     //  ----------- SCORE -----------
                     $(".score").show()
-                        .animate({ top: '5px' }, "slow")
+                        .animate({ top: '35px' }, "slow")
                         .animate({ bottom: '100px' }, "fast")
-                        .hide(1500);
+                        .hide(1000);
                     //  -----------------------------
 
                     //  ----------- CHECKING THE PHASE -----------
@@ -84,9 +84,9 @@ $(document).ready(() => {
 
     // --------------------------------- UPDATE PROGRESS BAR ---------------------------------
     function scoreUpdate(_score) {
-            $(".progressbar").progressbar({
-                value: _score
-            });
+        $(".progressbar").progressbar({
+            value: _score
+        });
     };
     // ---------------------------------------------------------------------------------------
 
@@ -123,13 +123,12 @@ $(document).ready(() => {
     // ---------------------------------------------------------------------------------------------
 
     // ---------------------------------  CREATE FIRST PHASE HTML ---------------------------------
-    $("#start-game").on("click", () => {
+    $("main").on("click", "#start-game", () => {
+
+        dataUser();
         $("main").html(phase1);
         musicGame.play();
         musicGame.loop = true;
-
-        console.log($("input").val());
-        // scorePlayer.name = $("#name-user").val();
 
         scoreUpdate(score);
         createDragLetter(words);
@@ -183,9 +182,9 @@ $(document).ready(() => {
     // -------------------------------- AJAX ----------------------------------
 
     function sendInfoUser(_score) {
-         scorePlayer.score = _score;
+        scorePlayer.score = _score;
         console.log(scorePlayer);
-        $.post(("/score"), scorePlayer, (_data) => { 
+        $.post(("/score"), scorePlayer, (_data) => {
             console.log(_data);
         });
     };
@@ -198,5 +197,10 @@ $(document).ready(() => {
         music.play();
     };
     // -------------------------------------------------------------------------
+
+    function dataUser(){
+        scorePlayer.name = $("#name-user").val();
+    }
+
 });
 
