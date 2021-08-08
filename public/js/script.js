@@ -200,7 +200,6 @@ $(document).ready(() => {
     // -------------------------------------------------------------------------
 
     function dataUser(){
-
         scorePlayer = {
             name : `${$("#name-user").val()}`
         }
@@ -210,7 +209,6 @@ $(document).ready(() => {
                 scorePlayer = data;
             }
         });
-
     };
 
 });

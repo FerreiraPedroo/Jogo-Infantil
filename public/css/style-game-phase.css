@@ -20,6 +20,11 @@
    background-color: #C2D37E;
 
 }
+
+#phase1, #phase2, #phase3 {
+    cursor: url("../images/cursor-1.png"), auto;
+}
+
 #phase1{
     background-image: url(../images/phase1.png);
     background-size:85%;
@@ -78,3 +83,18 @@
     
     text-align: center;
 }
+
+#template {
+    position: absolute;
+    top:57.6%;
+    left: 74.2%;
+    z-index: 0px;
+}
+
+#girl {
+    width: 200px;
+    position: absolute;
+   top: 68%;
+    right: 2%;
+}
+

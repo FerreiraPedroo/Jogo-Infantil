@@ -14,6 +14,8 @@
     -ms-user-select: none;
     user-select: none;
     outline: none;
+    cursor: url("../images/cursor-1.png"), auto;
+
 }
 
 html,body{
@@ -101,7 +103,7 @@ main{
     height: 13%;
     border: none;
     border-radius: 40px;
-    cursor: pointer;
+    /* cursor: pointer; */
     border-bottom: 5px solid #cc6d13;
     animation: buttonScale 1s infinite;
 }
@@ -389,8 +391,7 @@ main{
 }
 
 #next:hover{
-    background: #3FA82E;
-    transform: scale(1.1);
+    background: rgb(112, 219, 95)
 }
 
 #character-feedback{
