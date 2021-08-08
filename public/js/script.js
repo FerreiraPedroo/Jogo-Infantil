@@ -1,6 +1,6 @@
 import { DragDropClass } from './letter-script-class.js'
 import { createWordList, createDragLetter } from './letter-script.js'
-import { pageInitial, gameInitial, selectPhase, phase1, phase2, victoryScreen, theEnd} from './pages.js'
+import { pageInitial, gameInitial, selectPhase, phase1, phase2, victoryScreen, theEnd } from './pages.js'
 
 const dragDropWords = new DragDropClass;
 let wordsSelected;
@@ -100,35 +100,28 @@ $(document).ready(() => {
     // --------------------------------- CREATE WIN SCREEN ---------------------------------
     function victory(_phase) {
         $("main").append(victoryScreen);
+        $("#feedback-user").append(`
+             <img id="character-feedback" src="../images/${characters[nameImage]}.png" />
+        `)
         $("#character").hide(1000);
 
         //  ----------- NEXT PHASE -----------
         $("body").on("click", "#next", () => {
             score = 0;
-            if(scorePlayer.phase == 1){
+            if (scorePlayer.phase == 1) {
                 $("main").html(selectPhase);
+                $("#game-initial").append(`
+                  <img id="character-choice" src="./images/${characters[nameImage]}-cut.png">
+                 `);
                 $("#block").hide();
                 $("#lock-2").hide();
-            }else{
+            } else {
                 $("main").html(theEnd);
             }
-           
+
         });
         //  ----------------------------------
     };
-    // ---------------------------------------------------------------------------------------------
-
-
-    // ---------------------------------  CREATE SECOND PHASE HTML ---------------------------------
-    // function createSecondPhase() {
-    //     $("main").html(phase2);
-    //     scoreUpdate(score);
-
-    //     dragDropWords.setWordList = animals;
-    //     wordsSelected = dragDropWords.getWordListSelected()[0];
-
-    //     createDropAndDrag(wordsSelected, 2);
-    // };
     // ---------------------------------------------------------------------------------------------
 
     // ---------------------------------  CREATE FIRST PAGE HTML - SELECT CHARACTER ---------------------------------
@@ -162,6 +155,7 @@ $(document).ready(() => {
     // --------------------------------- CREATE FIRST PAGE HTML - SELECT PHASE --------------------------
     $("main").on("click", "#button-initial", () => {
         $("main").html(selectPhase);
+        scorePlayer.character = characters[nameImage];
         $("#game-initial").append(`
         <img id="character-choice" src="./images/${characters[nameImage]}-cut.png">
         `);
@@ -187,6 +181,8 @@ $(document).ready(() => {
     });
 
     // ---------------------------------------------------------------------------------------------
+
+    // ---------------------------------  CREATE SECOND PHASE HTML ---------------------------------
     $("main").on("click", "#phase2", () => {
         $("main").html(phase2);
         scoreUpdate(score);
@@ -196,6 +192,7 @@ $(document).ready(() => {
 
         createDropAndDrag(wordsSelected, 2);
     });
+    // ---------------------------------------------------------------------------------------------
 
     // ---------------------------------  BACK FUNCTION ----------------------------------
     $("main").on("click", ".back", () => {
@@ -260,7 +257,6 @@ $(document).ready(() => {
         scorePlayer = {
             name: `${$("#name-user").val()}`
         }
-        console.log(scorePlayer.name);
         $.post(("/playersearch"), scorePlayer, (data) => {
             if (data != false) {
                 scorePlayer = data;

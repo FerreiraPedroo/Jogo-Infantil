@@ -116,7 +116,7 @@ export const victoryScreen = `
             </div>
             <button id="next">Próxima</button>
         </div>
-        
+       
         </div>
 `
 

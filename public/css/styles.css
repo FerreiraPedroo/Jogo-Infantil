@@ -406,9 +406,9 @@ main{
 
 #character-feedback{
     position: absolute;
-    width: 200px;
-    left: 68%;
-    top: 45%;
+    height: 300px;
+    top: 50%;
+    right: 20%;
 }
 
 /* -------------------------------------------------------------------------------*/
