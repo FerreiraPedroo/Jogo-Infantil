@@ -1,6 +1,6 @@
 import { DragDropClass } from './letter-script-class.js'
 import { createWordList, createDragLetter } from './letter-script.js'
-import { phase1, phase2, victoryScreen } from './pages.js'
+import { phase1, phase2, victoryScreen, selectPhase } from './pages.js'
 
 const words = ["abelha", "navio", "vaca"];
 const animals = ["pato", "sapo", "jacare", "cachorro", "arara", "gato"];
