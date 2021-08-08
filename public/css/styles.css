@@ -88,6 +88,8 @@ main{
     margin-bottom: 20px;
     padding-left:10px ;
     font-family: 'Slackey', cursive;
+    color: #012233;
+    /* text-align: center; */
 }
 
 #name-user::placeholder{
@@ -110,6 +112,7 @@ main{
 
 #start-game:active{
     border-bottom: 2px solid #cc6d13;
+    cursor: url("../images/cursor-click-small2.png"), auto;
 }
 @keyframes buttonScale {
     0% {transform: scale(1);}
