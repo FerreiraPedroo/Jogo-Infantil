@@ -49,10 +49,9 @@ app.post("/playersearch", (req, res) => {
 app.post('/score', (req, res) => {
     playerData = {
         name: req.body.name,
-        score: req.body
+        score: req.body.score,
+        phase: req.body.phase
     }
-    playerData.name = req.body.name;
-    playerData.score = req.body.score;
 
     fs.readFile('./data/players-data.json', 'utf-8', (err, data) => {
         if (err) throw err
@@ -65,14 +64,13 @@ app.post('/score', (req, res) => {
 
 function writeTheFileData(_data) {
     playerData.id = (_data.length + 1);
-    _data.push(playerData);
-    console.log(_data);
-    // retorna 3, n made sentence
+    let list = _data
+    list.push(playerData)
 
-    // fs.writeFile("./data/players-data.json", `${JSON.stringify(list)}`, () => {
-    //     console.log("valor na escrita");
-    //     console.log(list);
-    // });
+    fs.writeFile("./data/players-data.json", `${JSON.stringify(list)}`, () => {
+        console.log("valor na escrita");
+        console.log(list);
+    });
 }
 
 app.listen(PORT, () => {

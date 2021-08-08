@@ -1,7 +1,3 @@
-* {
-  border:1px solid blue;
-}
-
 #game-initial{
     width: 100%;
     height: 100%;
@@ -14,6 +10,10 @@
     display:flex;
     align-items: center;
 }
+
+.arrow img{
+    width: 80px;
+}
 #character-select-img{
     display: flex;
     align-items: center;
@@ -22,7 +22,14 @@
     border-radius: 20px;
     background: rgba(37, 42, 43, 0.5)
 }
+
+#character-select-img  img{
+    width: 200px;
+}
+
 #button-initial{
+    position: absolute;
+
     display: flex;
     justify-content: center;
     align-items: center;
@@ -30,16 +37,29 @@
     width: 288px;
     height: 106px;
 
+    color: #FFFEFB;
     font-size: 30px;
-    color: white;  
-    border:10px solid black;
-    margin-top: 30px;
-
-
-    border-radius: 30px;
-    background-color: #FF7E05;
-    border:6px solid white;
+    font-family: 'Slackey', cursive;
+    background: #FF8819;
+    width: 18%;
+    height: 13%;
+    border: none;
+    border-radius: 40px;
+    cursor: pointer;
+    border-bottom: 5px solid #cc6d13;
+    animation: buttonScale 1s infinite;
+    top: 85%;
+    left: 40%;
 }
+
+#button-initial:active{
+    border-bottom: 2px solid #cc6d13;
+}
+
+#button-initial:hover {
+    background: #fc9433;
+}
+
 .arrow:hover, #button-initial:hover{
     cursor:pointer;
 }

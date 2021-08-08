@@ -185,7 +185,7 @@ $(document).ready(() => {
     function sendInfoUser(_score, _phase) {
         scorePlayer.score = _score;
         scorePlayer.phase = _phase;
-
+        console.log(scorePlayer.phase);
         $.post(("/score"), scorePlayer, (_data) => {
         });
     };
