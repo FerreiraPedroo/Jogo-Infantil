@@ -3,10 +3,12 @@ const express = require('express');
 const app = express();
 const bodyParser = require("body-parser");
 const path = require('path');
-const PORT = 8080;
+const { resolve } = require('path');
+const PORT = 80;
 let playerData;
 let playersList;
-let list = [];
+let user = {}
+let dataUser = [];
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -29,46 +31,44 @@ app.get('/', (req, res, next) => {
     });
 });
 
+app.post("/playersearch", (req, res) => {
+    user.name = req.body.name;
+    fs.readFile('./data/players-data.json', 'utf-8', (err, data) => {
+        if (err) throw err
+        verifyUser(data)
+    });
 
+    function verifyUser(_data) {
+        dataUser = JSON.parse(_data)
+        userData = dataUser.filter((player) => { return player.name == user.name; });
+        if (userData.length == 0) { userData = false }
+        res.send(userData)
+    }
+})
 
-app.post('/score',  (req, res) => {
+app.post('/score', (req, res) => {
     playerData = {
-        name : req.body.name,
-        score : req.body
+        name: req.body.name,
+        score: req.body
     }
     playerData.name = req.body.name;
     playerData.score = req.body.score;
 
-     fs.readFile('./data/players-data.json', 'utf-8', (err, data) => {
+    fs.readFile('./data/players-data.json', 'utf-8', (err, data) => {
         if (err) throw err
         playersList = JSON.parse(data);
         writeTheFileData(playersList);
     });
-
-
-    // fs.writeFile("./data/players-data.json", `${JSON.stringify(data)}`, () => {
-    //     console.log("valor na escrita");
-    //     console.log(data);
-    // });
-
-    // let dataPlayer = data.filter(user => { return user.id == playerData.id });
-    // if(users){
-    //     dataPlayer = data.filter(user => { return user.id != playerData.id });
-    // }
-
-    // data == undefined ? playerData.id = (users.length + 1) : ()=>{
-    // }
-
     res.send("ENVIADO")
 
 });
 
-function writeTheFileData(_data){
+function writeTheFileData(_data) {
     playerData.id = (_data.length + 1);
-    list = _data.push(playerData);
-    console.log(list);
+    _data.push(playerData);
+    console.log(_data);
     // retorna 3, n made sentence
-    
+
     // fs.writeFile("./data/players-data.json", `${JSON.stringify(list)}`, () => {
     //     console.log("valor na escrita");
     //     console.log(list);

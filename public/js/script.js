@@ -67,6 +67,7 @@ $(document).ready(() => {
                         // ------- UPDATE SCORE --------
                         sendInfoUser(score, _phase);
                         scoreUpdate(score);
+
                         // ------- CREAT SCREEN VICTORY --------
                         victory(_phase);
                         return;
@@ -185,9 +186,7 @@ $(document).ready(() => {
         scorePlayer.score = _score;
         scorePlayer.phase = _phase;
 
-        console.log(scorePlayer);
         $.post(("/score"), scorePlayer, (_data) => {
-            console.log(_data);
         });
     };
 
@@ -201,8 +200,18 @@ $(document).ready(() => {
     // -------------------------------------------------------------------------
 
     function dataUser(){
-        scorePlayer.name = $("#name-user").val();
-    }
+
+        scorePlayer = {
+            name : `${$("#name-user").val()}`
+        }
+        console.log(scorePlayer.name);
+        $.post(("/playersearch"), scorePlayer,(data)=>{
+            if(data != false){
+                scorePlayer = data;
+            }
+        });
+
+    };
 
 });
 
