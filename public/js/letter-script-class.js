@@ -71,8 +71,14 @@ export class DragDropClass {
     set setWordList(_wordList) {
         if (Array.isArray(_wordList)) {
             this.#wordList = _wordList;
+            this.#wordListQtd = 0;
+            this.#letterExtra = 0;
+            this.#letterTotal = 0;
+            this.#wordListSelected = [];
+            this.#letterListSelected = [];
             console.log("SetWordList: ", this.#wordList);
             console.log("SetWordListLength: ", this.#wordList.length);
+
         } else {
             return "erro: parametro deve ser um array";
         }

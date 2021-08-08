@@ -103,9 +103,61 @@ export const victoryScreen = `
                 <img src="./images/star.png" width="80px" />
                 <img src="./images/star.png" width="80px" />
                 <img src="./images/star.png" width="80px" />
-             </div>
+            </div>
             <button id="next">Próxima</button>
-         </div>
+        </div>
         <img id="character-feedback" src="./images/character.png">
         </div>
+`
+
+export const selectPhase = `
+<div id="game-initial">
+<p class="instruction-select-phase">SELECIONE A FASE</p>
+<div class="dashboard">
+    <div class="select-phase">
+        <div id="phase1" class="phase">
+            <div class="select-phase-stars" >
+                <div id="icone-star1-phase1" hidden><img class="icone-star" src="./images/star.png" alt="">
+                </div>
+                <div id="icone-star2-phase1" hidden><img class="icone-star" src="./images/star.png" alt="">
+                </div>
+                <div id="icone-star3-phase1" hidden><img class="icone-star" src="./images/star.png" alt="">
+                </div>
+            </div>
+            <div id="icone-padlock-phase1" class="select-phase-padlock">
+                <img class="icone-lock" src="./images/padlock.png" alt="">
+            </div>
+        </div>
+
+        <div id="phase2" class="phase">
+            <div class="select-phase-stars">
+                <div id="icone-star1-phase2" hidden><img class="icone-star" src="./images/star.png" alt="">
+                </div>
+                <div id="icone-star2-phase2" hidden><img class="icone-star" src="./images/star.png" alt="">
+                </div>
+                <div id="icone-star3-phase2" hidden><img class="icone-star" src="./images/star.png" alt="">
+                </div>
+            </div>
+            <div id="icone-lock-phase2" class="select-phase-lock">
+                <img class="icone-lock" src="./images/padlock.png" alt="">
+            </div>
+        </div>
+
+        <div id="phase3" class="phase">
+            <div class="select-phase-stars">
+                <div id="icone-star1-phase3" hidden><img class="icone-star" src="./images/star.png" alt="">
+                </div>
+                <div id="icone-star2-phase3" hidden><img class="icone-star" src="./images/star.png" alt="">
+                </div>
+                <div id="icone-star3-phase3" hidden><img class="icone-star" src="./images/star.png" alt="">
+                </div>
+            </div>
+            <div id="icone-lock-phase3" class="select-phase-lock">
+                <img class="icone-lock" src="./images/padlock.png" alt="">
+            </div>
+        </div>
+    </div>
+    <img class="back" src="./images/back.png" alt="">
+</div>
+</div>
 `
