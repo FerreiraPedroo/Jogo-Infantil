@@ -93,7 +93,7 @@ export class DragDropClass {
     set setExtraLetter(_letterExtraValue) {
         if (Number.isInteger(_letterExtraValue)) {
             this.#letterExtra = _letterExtraValue;
-            console.log("SetExtraNumber: ", this.#letterExtra );
+            console.log("SetExtraNumber: ", this.#letterExtra);
         } else {
             return "erro: parametro deve ser um 'Number'";
         }
@@ -101,8 +101,9 @@ export class DragDropClass {
 
     getWordListSelected(_qtd) {
         //this.#wordListQtd = _qtd;
-        this.#wordListQtd = this.#wordList.length > _qtd ? _qtd : this.#wordList.length;
-        console.log(this.#wordListQtd);
+        //console.log(this.#wordList)
+       
+        _qtd == undefined ? this.#wordListQtd = this.#wordList.length : this.#wordListQtd = this.#wordList.length > _qtd ? _qtd : this.#wordList.length;
         this.#letterTotal = (this.#wordListQtd + this.#letterExtra) <= this.#letterAlphabet.length ? (this.#wordListQtd + this.#letterExtra) : 25;
         this.randomWordListSelect();
         this.randomLetterList();

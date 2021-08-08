@@ -1,9 +1,12 @@
 import { DragDropClass } from './letter-script-class.js'
 import { createWordList, createDragLetter } from './letter-script.js'
-import { phase1, phase2, victoryScreen, selectPhase } from './pages.js'
+import { phase1, phase2, victoryScreen, selectPhase, gameInitial } from './pages.js'
+
+const dragDropWords = new DragDropClass;
+let wordsSelected;
 
 const words = ["abelha", "navio", "vaca"];
-const animals = ["pato", "sapo", "jacare", "cachorro", "arara", "gato"];
+const animals = ["pato", "sapo", "jacare", "cachorro", "arara", "gato","coelho"];
 
 const musicGame = new Audio("./music/theme-music.mp3");
 const feedbackGame = new Audio("./music/feedback-game.mp3");
@@ -40,42 +43,42 @@ $(document).ready(() => {
                 // ----------- EVENT THAT OCCURS WHEN THE DRAG IS RELEASED -----------
                 drop: function (event, ui) {
 
-                    //  ----------- testes -----------
-                    ui.offset.top = "50%";
-                    ui.offset.left = "40%";
-                    //  -----------------------------
+                    //  ----------- RIGHT POSITION ------------------
+                    ui.draggable.css({ "left": "0px", "top": "0px" })
+                    $(event.target).append(ui.draggable)
+                    //  ---------------------------------------------
 
                     //  ----------- CHANGE THE BACKGROUND -----------
                     $(this).css("background", "#728C0B");
-                    //  -----------------------------
+                    //  ---------------------------------------------
 
-                    //  ----------- SCORE -----------
+                    //  ----------- SCORE ---------------------------
                     $(".score").show()
                         .animate({ top: '35px' }, "slow")
                         .animate({ bottom: '100px' }, "fast")
                         .hide(1000);
-                    //  -----------------------------
+                    //  ---------------------------------------------
 
-                    //  ----------- CHECKING THE PHASE -----------
+                    //  ----------- CHECKING THE PHASE --------------
                     _phase == 1 ? score += 30 : score += 15;
-                    //  ----------------------------------------
+                    //  ---------------------------------------------
 
-                    //  ----------- CHECKING THE SCORE -----------
+                    //  ----------- CHECKING THE SCORE --------------
                     if (score >= 90) {
                         score = 100;
                         feedbackGame.play();
-                        // ------- UPDATE SCORE --------
+                        // ------- UPDATE SCORE ---------------------
                         sendInfoUser(score, _phase);
                         scoreUpdate(score);
 
-                        // ------- CREAT SCREEN VICTORY --------
+                        // ------- CREAT SCREEN VICTORY -------------
                         victory(_phase);
                         return;
                     } else {
                         sound(pointAudio);
                         scoreUpdate(score);
                     };
-                    //  ------------------------------------------
+                    //  --------------------------------------------
                 }
                 // ---------------------------------------------------------------------
             });
@@ -113,7 +116,11 @@ $(document).ready(() => {
     function createSecondPhase() {
         $("main").html(phase2);
         scoreUpdate(score);
-        createDropAndDrag(animals, 2);
+
+        dragDropWords.setWordList = animals;
+        wordsSelected = dragDropWords.getWordListSelected()[0];
+
+        createDropAndDrag(wordsSelected, 2);
     };
     // ---------------------------------------------------------------------------------------------
 
@@ -131,10 +138,14 @@ $(document).ready(() => {
         musicGame.play();
         musicGame.loop = true;
 
+        dragDropWords.setWordList = words;
+        //dragDropWords.setExtraLetter = 3;        
+        wordsSelected = dragDropWords.getWordListSelected();
+
         scoreUpdate(score);
-        createDragLetter(words);
-        createWordList(words);
-        createDropAndDrag(words, 1);
+        createDragLetter(wordsSelected[1]);
+        createWordList(wordsSelected[0]);
+        createDropAndDrag(wordsSelected[0], 1);
     });
     // ---------------------------------------------------------------------------------------------
 
@@ -199,13 +210,18 @@ $(document).ready(() => {
     };
     // -------------------------------------------------------------------------
 
+<<<<<<< Updated upstream
     function dataUser(){
+=======
+    function dataUser() {
+
+>>>>>>> Stashed changes
         scorePlayer = {
-            name : `${$("#name-user").val()}`
+            name: `${$("#name-user").val()}`
         }
         console.log(scorePlayer.name);
-        $.post(("/playersearch"), scorePlayer,(data)=>{
-            if(data != false){
+        $.post(("/playersearch"), scorePlayer, (data) => {
+            if (data != false) {
                 scorePlayer = data;
             }
         });

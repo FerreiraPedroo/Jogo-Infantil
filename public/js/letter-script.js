@@ -37,5 +37,6 @@ export function createDragLetter(_letters) {
         </div>
         `;
     }
-    return letterHTML;
+    //$("#letters-space").append(letterHTML);
+    //return letterHTML;
 }
