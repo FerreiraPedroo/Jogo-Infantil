@@ -1,1 +1,25 @@
-[{"id":1,"name":"Rebeca","score":100,"phase":1},{"id":2,"name":"Antônio","score":0,"phase":0},{"name":"lu","score":"100","id":3},{"name":"luan","score":"100","phase":"1","id":4},{"name":"","score":"100","phase":"1","id":8},{"id":6},{"id":7},{"name":"luiz","score":"100","phase":"1","id":8},{"name":"luiz","score":"100","phase":"2","id":9},{"id":10},{"id":11},{"id":12}]
+[
+    {
+        "id": 1,
+        "name": "Rebeca",
+        "score": 100,
+        "phase": 1
+    },
+    {
+        "id": 2,
+        "name": "Antônio",
+        "score": 0,
+        "phase": 0
+    },
+    {
+        "name": "lu",
+        "score": "100",
+        "id": 3
+    },
+    {
+        "name": "luan",
+        "score": "100",
+        "phase": "1",
+        "id": 4
+    }
+]

@@ -70,6 +70,7 @@
 .instruction-select-phase{
     margin: 0;
     padding: 0;
+    margin-top: -6%;
     font-family: Rammetto One;
     font-style: normal;
     font-weight: normal;
@@ -86,15 +87,22 @@
 
 #template {
     position: absolute;
-    top:57.6%;
+    bottom:0%;
     left: 74.2%;
     z-index: 0px;
 }
 
-#girl {
-    width: 200px;
+#character-choice {
     position: absolute;
-   top: 68%;
+    height:225px;
+    bottom:0%;
     right: 2%;
 }
 
+#block{
+    position: absolute;
+    width: 20%;
+    height: 42%;
+    right: 28%;
+    top: 30%;
+}

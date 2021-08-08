@@ -1,3 +1,13 @@
+export const pageInitial = `
+            <div id="home-page">
+            <div id="title">
+                <img src="./images/brain-training-title.svg" />
+            </div>
+            <input id="name-user" type="text" placeholder="Nome">
+            <button id="start-game">JOGAR</button>
+            </div>
+`
+
 export const phase1 = `
             <div class="phase-1">
             <p class="instruction">AJUDE A COMPLETAR A PALAVRA!</p>
@@ -19,7 +29,7 @@ export const phase1 = `
                 </div>
             </div>
             <img class="back" src="./images/back.png" alt="">
-            <img id="character" src="./images/character.png" alt="">
+            
             <p class="score">+1</p>
             <div id="score-bar "> 
             <img id="coin" src="./images/coin-1.png" />
@@ -106,7 +116,7 @@ export const victoryScreen = `
             </div>
             <button id="next">Próxima</button>
         </div>
-        <img id="character-feedback" src="./images/character.png">
+        
         </div>
 `
 
@@ -125,7 +135,6 @@ export const selectPhase = `
                         </div>
                     </div>
                     <div id="icone-padlock-phase1" class="select-phase-padlock">
-                        <img class="icone-lock" src="./images/padlock.png" alt="">
                     </div>
                 </div>
 
@@ -139,11 +148,11 @@ export const selectPhase = `
                         </div>
                     </div>
                     <div id="icone-lock-phase2" class="select-phase-lock">
-                        <img class="icone-lock" src="./images/padlock.png" alt="">
+                        <img id="lock-2" class="icone-lock" src="./images/padlock.png" alt="">
                     </div>
                 </div>
 
-                <div id="phase3" class="phase">
+                <!--<div id="phase3" class="phase">
                     <div class="select-phase-stars">
                         <div id="icone-star1-phase3" hidden><img class="icone-star" src="./images/star.png" alt="">
                         </div>
@@ -155,24 +164,26 @@ export const selectPhase = `
                     <div id="icone-lock-phase3" class="select-phase-lock">
                         <img class="icone-lock" src="./images/padlock.png" alt="">
                     </div>
-                </div>
+                </div>-->
             </div>
             <img class="back" src="./images/back.png" alt="">
         </div>
+        <img id="template" width="350px" src="./images/template-screen-phase.png" >
         </div>
+        <div id="block"><div>
         `
 export const gameInitial = `
     <div id="game-initial">
             <p class="instruction">ESCOLHA UM AJUDANTE</p>
             <div class="dashboard">
                 <div class="arrow">
-                    <img src="./images/arrow-left.png" alt="">
+                    <img class="arrow-left" src="./images/arrow-left.png" alt="">
                 </div>
                 <div id="character-select-img">
-                    <img src="./images/character.png" alt="">
+                    <img id="character-person" src="./images/character.png" alt="">
                 </div>
                 <div class="arrow">
-                    <img src="./images/arrow-right.png" alt="">
+                    <img class="arrow-right" src="./images/arrow-right.png" alt="">
                 </div>
             </div>
             </div>
@@ -180,3 +191,13 @@ export const gameInitial = `
             <div id="button-initial"><span>INICIAR</span></div>
         </div>
     `
+
+export const theEnd = `
+        <div id="the-end">
+            <img src="./images/THE-END.svg" />
+            <div>
+                <p>Copyright Layssa & Pedro - 2021</p>
+                <img id="copyright-img" src="./images/copyright.png" />
+            </div>
+        </div>
+`

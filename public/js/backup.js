@@ -1,13 +1,12 @@
 import { DragDropClass } from './letter-script-class.js'
 import { createWordList, createDragLetter } from './letter-script.js'
-import { pageInitial, gameInitial, selectPhase, phase1, phase2, victoryScreen, theEnd} from './pages.js'
+import { pageInitial, gameInitial, selectPhase, phase1, phase2, victoryScreen,  } from './pages.js'
 
 const dragDropWords = new DragDropClass;
 let wordsSelected;
 
 const words = ["abelha", "navio", "vaca"];
-const animals = ["pato", "sapo", "jacare", "cachorro", "arara", "gato", "coelho"];
-const characters = ["girl-1", "boy-1", "girl-2", "boy-2"];
+const animals = ["pato", "sapo", "jacare", "cachorro", "arara", "gato","coelho"];
 
 const musicGame = new Audio("./music/theme-music.mp3");
 const feedbackGame = new Audio("./music/feedback-game.mp3");
@@ -18,7 +17,6 @@ musicGame.play()
 
 let score = 0;
 let scorePlayer = {};
-let nameImage = 0;
 
 $(document).ready(() => {
 
@@ -99,20 +97,15 @@ $(document).ready(() => {
 
     // --------------------------------- CREATE WIN SCREEN ---------------------------------
     function victory(_phase) {
-        $("main").append(victoryScreen);
+        $("body").append(victoryScreen);
         $("#character").hide(1000);
 
         //  ----------- NEXT PHASE -----------
         $("body").on("click", "#next", () => {
             score = 0;
-            if(scorePlayer.phase == 1){
-                $("main").html(selectPhase);
-                $("#block").hide();
-                $("#lock-2").hide();
-            }else{
-                $("main").html(theEnd);
-            }
-           
+            $(`.phase-${Number(_phase)}`).hide();
+            $("#feedback-user").hide();
+            _phase == 1 ? createSecondPhase() : createThirdPhase();
         });
         //  ----------------------------------
     };
@@ -120,61 +113,24 @@ $(document).ready(() => {
 
 
     // ---------------------------------  CREATE SECOND PHASE HTML ---------------------------------
-    // function createSecondPhase() {
-    //     $("main").html(phase2);
-    //     scoreUpdate(score);
+    function createSecondPhase() {
+        $("main").html(phase2);
+        scoreUpdate(score);
 
-    //     dragDropWords.setWordList = animals;
-    //     wordsSelected = dragDropWords.getWordListSelected()[0];
+        dragDropWords.setWordList = animals;
+        wordsSelected = dragDropWords.getWordListSelected()[0];
 
-    //     createDropAndDrag(wordsSelected, 2);
-    // };
+        createDropAndDrag(wordsSelected, 2);
+    };
     // ---------------------------------------------------------------------------------------------
 
-    // ---------------------------------  CREATE FIRST PAGE HTML - SELECT CHARACTER ---------------------------------
+    // ---------------------------------  CREATE FIRST PHASE HTML ---------------------------------
     $("main").on("click", "#start-game", () => {
+
+        dataUser();
+        $("main").html(phase1);
         musicGame.play();
         musicGame.loop = true;
-        dataUser();
-        $("main").html(gameInitial);
-    });
-    // ---------------------------------------------------------------------------------------------
-
-    // ---------------------------------  CHOICE CHARACTER ---------------------------------
-    $("main").on("click", ".arrow-left", () => {
-        if (nameImage == 0) {
-            nameImage = 3;
-        } else {
-            nameImage--
-        }
-        $("#character-person").attr("src", `../images/${characters[nameImage]}.png`);
-    })
-    $("main").on("click", ".arrow-right", () => {
-        if (nameImage == 3) {
-            nameImage = 0;
-        } else {
-            nameImage++
-        }
-        $("#character-person").attr("src", `../images/${characters[nameImage]}.png`);
-    })
-    // ---------------------------------------------------------------------------------------------
-
-    // --------------------------------- CREATE FIRST PAGE HTML - SELECT PHASE --------------------------
-    $("main").on("click", "#button-initial", () => {
-        $("main").html(selectPhase);
-        $("#game-initial").append(`
-        <img id="character-choice" src="./images/${characters[nameImage]}-cut.png">
-        `);
-
-    });
-    // --------------------------------------------------------------------------------------------
-
-    // ----------------------------------- CREATE FIRST PHASE -------------------------------------
-    $("main").on("click", "#phase1", () => {
-        $("main").html(phase1);
-        $(".phase-1").append(`
-        <img id="character" src="./images/${characters[nameImage]}.png" alt="">
-        `)
 
         dragDropWords.setWordList = words;
         //dragDropWords.setExtraLetter = 3;        
@@ -185,17 +141,7 @@ $(document).ready(() => {
         createWordList(wordsSelected[0]);
         createDropAndDrag(wordsSelected[0], 1);
     });
-
     // ---------------------------------------------------------------------------------------------
-    $("main").on("click", "#phase2", () => {
-        $("main").html(phase2);
-        scoreUpdate(score);
-
-        dragDropWords.setWordList = animals;
-        wordsSelected = dragDropWords.getWordListSelected()[0];
-
-        createDropAndDrag(wordsSelected, 2);
-    });
 
     // ---------------------------------  BACK FUNCTION ----------------------------------
     $("main").on("click", ".back", () => {
@@ -242,7 +188,7 @@ $(document).ready(() => {
     function sendInfoUser(_score, _phase) {
         scorePlayer.score = _score;
         scorePlayer.phase = _phase;
-        console.log(scorePlayer.phase);
+      
         $.post(("/score"), scorePlayer, (_data) => {
         });
     };
@@ -256,7 +202,7 @@ $(document).ready(() => {
     };
     // -------------------------------------------------------------------------
 
-    function dataUser() {
+    function dataUser(){
         scorePlayer = {
             name: `${$("#name-user").val()}`
         }
