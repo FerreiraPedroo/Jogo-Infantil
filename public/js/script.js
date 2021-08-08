@@ -210,12 +210,7 @@ $(document).ready(() => {
     };
     // -------------------------------------------------------------------------
 
-<<<<<<< Updated upstream
     function dataUser(){
-=======
-    function dataUser() {
-
->>>>>>> Stashed changes
         scorePlayer = {
             name: `${$("#name-user").val()}`
         }
