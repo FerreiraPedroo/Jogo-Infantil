@@ -176,14 +176,21 @@ main{
     padding-right: 25%;
     border-bottom: 1px solid #FFFFFF;
     padding-bottom: 10px;
+    align-self: center;
+}
+#players-space{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+
+    height: 320px;
 }
 
-#overlay-ranking div{
+#players-space div{
     display: flex;
-    width: 80%;
+    width: 100%;
     justify-content: space-between;
     align-items:center ;
-    width: 235px;
     height: 44px;
     padding:  1px 10px;
     background: #9291A9;

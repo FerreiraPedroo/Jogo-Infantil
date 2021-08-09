@@ -74,7 +74,7 @@ $(document).ready(() => {
                     if (elementDragg != elementDropp) {
                         $(this).css("background", "#FF3333")
                             .animate({ "background": "#F6FED5" }, "slow")
-                            score >= 0? score = score - 3 : score = 0;
+                        score >= 0 ? score = score - 3 : score = 0;
 
                     } else {
                         //  ----------- RIGHT POSITION ------------------
@@ -307,26 +307,34 @@ $(document).ready(() => {
     // -------------------------------------------------------------------------
 
     // ----------- ranking -----------------
-    $("#ranking").on("click",()=>{
-        $("#overlay-ranking").css("display","flex");
+    $("#ranking").on("click", () => {
+        $("#overlay-ranking").css("display", "flex");
 
-        $.get("/ranking", function( data ) {
-            console.log(data);
-
+        $.get("/ranking", function (data) {
             
-
-
-
+            data.forEach((playerUser) => {
+                if(playerUser.name == ""){
+                    playerUser.name = "Desconhecido"
+                }
+                $("#players-space").append(
+                    ` <div>
+                             <p>${playerUser.name}</p>
+                             <p>${playerUser.score} .pts</p>
+                     </div>`
+                )
+            })
+            console.log(data);
 
         });
 
     });
 
-    $("#close-overlay").on("click",()=>{
-        $("#overlay-ranking").css("display","none");
+    $("#close-overlay").on("click", () => {
+        $("#overlay-ranking").css("display", "none");
+        $("#players-space").html("");
     });
 
     // ----------------------------------
-    
+
 });
 
