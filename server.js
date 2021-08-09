@@ -81,7 +81,7 @@ app.post('/score', (req, res) => {
                 reject();
             } else {
                 console.log("| ReadFile: './data/players-data.json' - OK");
-                let playersList = JSON.parse(data);
+                playersList = JSON.parse(data);
                 let userListJSONPosition = 0;
 
                 for (u in playersList) {
@@ -112,7 +112,7 @@ app.post('/score', (req, res) => {
                 console.log("| ERRO: " + err);
                 reject();
             } else {
-                console.log("ATUALIZADO: ",_data)
+                console.log("| ATUALIZADO: ",_data)
                 console.log("| SCORE OK - FIM");
                 res.send({ "SCORE": "OK" });
             }
