@@ -271,7 +271,7 @@ $(document).ready(() => {
     // -------------------------------- AJAX ----------------------------------
 
     function sendInfoUser(_score, _phase) {
-        scoreTotal = _score;
+        scoreTotal += _score;
         scorePlayer.score = scoreTotal;
         scorePlayer.phase = _phase;
         console.log(scorePlayer.phase);
