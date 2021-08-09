@@ -1,20 +1,18 @@
-//------------- a função recebe pelo parametro um array com a quantidade de palaras que será inseridas no html. -------------
+//------------- the function receives by parameter an array with the amount of words that will be inserted in the html. -------------
 export function createWordList(_word) {
-    // console.log(_word)
     const words = _word
-    //const words = ["abelha", "navio", "vaca"];
 
     // ------------- receive array with words -------------
     const wordList = words;
     wordList.forEach(element => {
-        //------------- cria o html da linha da palavra -------------
-        // ------------- variavel que armazenará o html que será inserido na página.-------------
+        //------------- creates HTML from word line -------------
+        // ------------- variable that stores the html that will be inserted in the page.-------------
         let wordHTML = `
         <div class="words">
               <div element="${element}" class="letters-words ui-widget-header drop_${element}" id="${element}"></div>
         `;
         for (let w = 1; w < element.length; w++) {
-            // ------------- cria o html das letras da palavra -------------
+            // ------------- creates the HTML of the letters of the word -------------
             wordHTML += `
                 <div class="letters-words">
                             <img element="${element}" src="./images/letter-${element[w]}.png" alt="">
@@ -31,26 +29,16 @@ export function createWordList(_word) {
 export function createDragLetter(_letters, _names) {
     let letters = _letters;
     let letterHTML = "";
-    
+
     for (let l = 0; l < letters.length; l++) {
-        if (l == 1) {
-            letterHTML += `
-        <div class="letters-middle letters-drop">
-            <img element="${_names[l]}" class="letters-object drag ${_names[l]}" src="./images/letter-${letters[l]}.png" alt="">
-        </div>
-        `;
-        } else {
             letterHTML += `
         <div class="letters letters-drop">
             <img element="${_names[l]}" class="letters-object drag ${_names[l]}" src="./images/letter-${letters[l]}.png" alt="">
         </div>
         `;
-        }
         console.log(l+ " " +letters[l] + " de " + _names[l]);
-        // console.log(_names[l]);
     }
     $("#letters-space").append(letterHTML);
-    //return letterHTML;
 }
 
 export function createdAnimal(_animals) {

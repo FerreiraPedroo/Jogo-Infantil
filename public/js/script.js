@@ -205,7 +205,7 @@ $(document).ready(() => {
         `)
 
         dragDropWords.setWordList = words;
-        //dragDropWords.setExtraLetter = 3;        
+        dragDropWords.setExtraLetter = 3;        //---------------------
         wordsSelected = dragDropWords.getWordListSelected(3);
         scoreUpdate(score);
         createDragLetter(wordsSelected[1], wordsSelected[0]);
@@ -303,6 +303,17 @@ $(document).ready(() => {
         });
     };
     // -------------------------------------------------------------------------
+
+    // ----------- ranking -----------------
+    $("#ranking").on("click",()=>{
+        $("#overlay-ranking").css("display","flex");
+    });
+
+    $("#close-overlay").on("click",()=>{
+        $("#overlay-ranking").css("display","none");
+    });
+
+    // ----------------------------------
     
 });
 
