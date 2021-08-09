@@ -259,7 +259,7 @@ $(document).ready(() => {
         }
         $.post(("/playersearch"), scorePlayer, (data) => {
             if (data != false) {
-                scorePlayer = data;
+                scorePlayer = data[0];
             }
         });
     };
