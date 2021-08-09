@@ -12,14 +12,15 @@ const characters = ["girl-1", "boy-1", "girl-2", "boy-2"];
 const musicGame = new Audio("./music/theme-music.mp3");
 const feedbackGame = new Audio("./music/feedback-game.mp3");
 const pointAudio = "./music/points-audio.mp3";
+const erroAudio = "./music/erro-1.mp3";
 
 const music = new Audio();
-musicGame.play()
+musicGame.autoplay = true;
+musicGame.load();
 
 let score = 0;
 let scorePlayer = {};
 let nameImage = 0;
-let teste;
 let scoreTotal = 0;
 
 $(document).ready(() => {
@@ -75,8 +76,11 @@ $(document).ready(() => {
                         $(this).css("background", "#FF3333")
                             .animate({ "background": "#F6FED5" }, "slow")
                         score >= 0 ? score = score - 3 : score = 0;
+                        sound(erroAudio);
+                        // sound(pointAudio);
 
                     } else {
+                        sound(pointAudio);
                         //  ----------- RIGHT POSITION ------------------
                         ui.draggable.css({ "left": "0px", "top": "0px" })
                         $(event.target).append(ui.draggable)
@@ -109,7 +113,7 @@ $(document).ready(() => {
                         victory(_phase);
                         return;
                     } else {
-                        sound(pointAudio);
+                        // sound(pointAudio);
                         scoreUpdate(score);
                     };
                     //  --------------------------------------------
@@ -323,8 +327,6 @@ $(document).ready(() => {
                      </div>`
                 )
             })
-            console.log(data);
-
         });
 
     });
