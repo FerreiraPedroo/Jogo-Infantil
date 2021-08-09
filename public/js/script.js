@@ -5,7 +5,7 @@ import { pageInitial, gameInitial, selectPhase, phase1, phase2, victoryScreen, t
 const dragDropWords = new DragDropClass;
 let wordsSelected;
 
-const words = ["abelha", "navio", "vaca"];
+const words = ["abelha", "navio", "vaca", "arroz", "macaco"];
 const animals = ["pato", "sapo", "jacare", "cachorro", "arara", "gato", "coelho"];
 const characters = ["girl-1", "boy-1", "girl-2", "boy-2"];
 
@@ -19,6 +19,7 @@ musicGame.play()
 let score = 0;
 let scorePlayer = {};
 let nameImage = 0;
+let teste;
 
 $(document).ready(() => {
 
@@ -28,11 +29,16 @@ $(document).ready(() => {
         // --------------------------------- DRAG ---------------------------------
         $(".drag").draggable({
             cursor: "grabbing",
-            revert: "invalid",
+            revert: function(_drop){
+                if(!_drop){
+                    return true
+                }
+            },
             snap: ".drop",
             snapMode: "inner",
             snapTolerance: 40,
-            tolerance: "touch"
+            tolerance: "touch",
+            containment: ".dashboard"
         });
 
         _arrayWords.forEach((elements) => {
@@ -49,6 +55,15 @@ $(document).ready(() => {
                     ui.draggable.css({ "left": "0px", "top": "0px" })
                     $(event.target).append(ui.draggable)
                     //  ---------------------------------------------
+
+                    let elementDragg = $(ui.draggable).attr('element');
+                    let elementDropp = $(this).attr('element');
+                    console.log(elementDragg);
+                    console.log(elementDropp);
+
+                    if(elementDragg != elementDropp ){
+                        console.log("ERRADO");
+                    }
 
                     //  ----------- CHANGE THE BACKGROUND -----------
                     $(this).css("background", "#728C0B");
@@ -172,10 +187,9 @@ $(document).ready(() => {
 
         dragDropWords.setWordList = words;
         //dragDropWords.setExtraLetter = 3;        
-        wordsSelected = dragDropWords.getWordListSelected();
-
+        wordsSelected = dragDropWords.getWordListSelected(3);
         scoreUpdate(score);
-        createDragLetter(wordsSelected[1]);
+        createDragLetter(wordsSelected[1], wordsSelected[0]);
         createWordList(wordsSelected[0]);
         createDropAndDrag(wordsSelected[0], 1);
     });
@@ -253,6 +267,8 @@ $(document).ready(() => {
     };
     // -------------------------------------------------------------------------
 
+    // ----------------------------- SEARCH USER ------------------------------
+
     function dataUser() {
         scorePlayer = {
             name: `${$("#name-user").val()}`
@@ -263,6 +279,7 @@ $(document).ready(() => {
             }
         });
     };
+    // -------------------------------------------------------------------------
 
 });
 

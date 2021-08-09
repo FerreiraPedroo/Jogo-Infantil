@@ -193,7 +193,7 @@ main{
     justify-content: space-evenly;
 }
 
-.letters, #letters-middle{
+.letters, .letters-middle{
     display: flex;
     justify-content: center;
     width: 40%;

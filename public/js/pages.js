@@ -13,17 +13,17 @@ export const phase1 = `
             <p class="instruction">AJUDE A COMPLETAR A PALAVRA!</p>
             <div class="dashboard">
                 <div id="letters-space">
-                    <div class="letters">
-                        <img class="letters-object drag vaca" src="./images/letter-V.png" alt="">
+                  <!--  <div class="letters">
+                        <img element="vaca" class="letters-object drag vaca" src="./images/letter-V.png" alt="">
                     </div>
                     <div id="letters-middle">
-                        <img class="letters-object ui-widget-content draggable drag abelha" src="./images/letter-A.png"
+                        <img element="abelha" class="letters-object ui-widget-content draggable drag abelha" src="./images/letter-A.png"
                             alt="">
                     </div>
                     <div class="letters">
-                        <img class="letters-object drag navio" src="./images/letter-N.png" alt="">
+                        <img element="navio" class="letters-object drag navio" src="./images/letter-N.png" alt="">
                     </div>
-
+                    -->
                 </div>
                 <div id="words-space">
                 </div>
@@ -44,55 +44,55 @@ export const phase2 = `
             <div class="container">
                 <div class="figures">
                     <div class="figures-animals">
-                        <img class="drag pato" src="./images/pato-2.png" />
+                        <img element="pato" class="drag pato" src="./images/pato.png" />
                     </div>
                     <div class="figures-animals">
-                        <img class="drag gato" src="./images/gato.png" style="width: 80%;" />
+                        <img element="gato" class="drag gato" src="./images/gato.png" style="width: 80%;" />
                     </div>
                     <div class="figures-animals">
-                        <img class="drag cachorro" src="./images/cachorro.png" />
+                        <img element="cachorro" class="drag cachorro" src="./images/cachorro.png" />
                     </div>
                     <div class="figures-animals ">
-                        <img class="drag coelho" src="./images/coelho.png" />
+                        <img element="coelho" class="drag coelho" src="./images/coelho.png" />
                     </div>
                     <div class="figures-animals ">
-                        <img class="drag jacare" src="./images/jacare.png" />
+                        <img element="jacare" class="drag jacare" src="./images/jacare.png" />
                     </div>
                     <div class="figures-animals">
-                        <img class="drag sapo" src="./images/sapo2.png" />
+                        <img element="sapo"class="drag sapo" src="./images/sapo.png" />
                     </div>
                     <div class="figures-animals">
-                        <img class="drag arara" src="./images/arara.png" />
+                        <img element="arara"class="drag arara" src="./images/arara.png" />
                     </div>
                 </div>
                 <div class="space-animals">
                     <div id="space-one">
                         <div class="spaces">
-                            <div class="drop-animal drop_pato"></div>
+                            <div element="pato" class="drop-animal drop_pato"></div>
                             <p class="animal">PATO</p>
                         </div>
                         <div class="spaces">
-                            <div class="drop-animal drop_cachorro"></div>
+                            <div element="cachorro" class="drop-animal drop_cachorro"></div>
                             <p class="animal">CACHORRO</p>
                         </div>
                     </div>
                     <div id="space-two">
                         <div class="spaces">
-                            <div class="drop-animal drop_sapo"></div>
+                            <div element="sapo" class="drop-animal drop_sapo"></div>
                             <p class="animal">SAPO</p>
                         </div>
                         <div class="spaces">
-                            <div class="drop-animal drop_arara"></div>
+                            <div element="arara" class="drop-animal drop_arara"></div>
                             <p class="animal">ARARA</p>
                         </div>
                     </div>
                     <div id="space-three">
                         <div class="spaces">
-                            <div class="drop-animal drop_jacare"></div>
+                            <div element="jacare" class="drop-animal drop_jacare"></div>
                             <p class="animal">JACARÉ</p>
                         </div>
                         <div class="spaces">
-                            <div class="drop-animal drop_gato"></div>
+                            <div element="gato" class="drop-animal drop_gato"></div>
                             <p class="animal">GATO</p>
                         </div>
                     </div>

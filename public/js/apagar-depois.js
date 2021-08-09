@@ -21,13 +21,13 @@ $(".draggable").draggable({
     drop: function (event, ui) {
       const class_Dragg = $(ui.draggable).attr('class');
       const id_Dropp = $(this).attr('id');
-      console.log("drop chamado " + id_Dropp)
+      console.log("drop chamado " + id_Dropp);
 
 
       // if (game.moveIsRight(..,..)) {
       if (class_Dragg.includes("animalSavanna") && id_Dropp === 'habitat_savanna' || class_Dragg.includes("animalArctic") && id_Dropp === 'habitat_arctic') {
-        // game.increaseScore()
-        // $("#display").html(game.getScore())
+        // game.increaseScore();
+        // $("#display").html(game.getScore());
         console.log("foi aceito")
         const audio = new Audio('./mp3/pontuacao.mp3');
         audio.play();
