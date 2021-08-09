@@ -198,6 +198,10 @@ $(document).ready(() => {
         $("#game-initial").append(`
         <img id="character-choice" src="./images/${characters[nameImage]}-cut.png">
         `);
+        if (scorePlayer.phase == 1) {
+            $("#block").hide();
+            $("#lock-2").hide();
+        }
 
     });
     // --------------------------------------------------------------------------------------------
@@ -297,14 +301,14 @@ $(document).ready(() => {
     function dataUser() {
         scorePlayer = {
             name: `${$("#name-user").val()}`
-        }
+        };
         $.post(("/playersearch"), scorePlayer, (data) => {
             if (data != false) {
                 scorePlayer = data[0];
-                if (scorePlayer.phase == 1) {
-                    $("#block").hide();
-                    $("#lock-2").hide();
-                }
+                // if (scorePlayer.phase == 1) {
+                //     $("#block").hide();
+                //     $("#lock-2").hide();
+                // }
             }
         });
     };
@@ -319,14 +323,14 @@ $(document).ready(() => {
             data.forEach((playerUser) => {
                 if(playerUser.name == ""){
                     playerUser.name = "Desconhecido"
-                }
+                };
                 $("#players-space").append(
                     ` <div>
                              <p>${playerUser.name}</p>
                              <p>${playerUser.score} .pts</p>
                      </div>`
-                )
-            })
+                );
+            });
         });
 
     });
