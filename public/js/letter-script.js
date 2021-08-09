@@ -30,19 +30,18 @@ export function createWordList(_word) {
 
 export function createDragLetter(_letters, _names) {
     let letters = _letters;
-    console.log(_letters);
-    console.log(_names);
     let letterHTML = "";
+    
     for (let l = 0; l < letters.length; l++) {
         if (l == 1) {
             letterHTML += `
-        <div class="letters-middle">
+        <div class="letters-middle letters-drop">
             <img element="${_names[l]}" class="letters-object drag ${_names[l]}" src="./images/letter-${letters[l]}.png" alt="">
         </div>
         `;
         } else {
             letterHTML += `
-        <div class="letters">
+        <div class="letters letters-drop">
             <img element="${_names[l]}" class="letters-object drag ${_names[l]}" src="./images/letter-${letters[l]}.png" alt="">
         </div>
         `;

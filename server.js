@@ -99,7 +99,7 @@ app.post('/score', (req, res) => {
                 if (userListJSONPosition == playersList.length) {
                     playerData.id = playersList[playersList.length - 1].id + 1;
                     playersList.push(playerData);
-                    console.log("| Usuario: ",playerData);
+                    console.log("| Usuario: ", playerData);
                     console.log("| Novo usuário");
                     resolve(playersList)
                 }
@@ -112,7 +112,7 @@ app.post('/score', (req, res) => {
                 console.log("| ERRO: " + err);
                 reject();
             } else {
-                console.log("| ATUALIZADO: ",_data)
+                console.log("| ATUALIZADO: ", _data)
                 console.log("| SCORE OK - FIM");
                 res.send({ "SCORE": "OK" });
             }
@@ -122,14 +122,6 @@ app.post('/score', (req, res) => {
         res.send({ "ERRO": "NÃO FOI POSSIVEL SALVAR O SCORE" })
     })
 });
-
-
-
-
-
-
-
-
 
 
 app.listen(PORT, () => {

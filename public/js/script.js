@@ -5,7 +5,7 @@ import { pageInitial, gameInitial, selectPhase, phase1, phase2, victoryScreen, t
 const dragDropWords = new DragDropClass;
 let wordsSelected;
 
-const words = ["abelha", "navio", "vaca", "arroz", "macaco"];
+const words = ["abelha", "navio", "vaca", "arroz", "macaco", "baleia", "casa", "carro", "onibus", "urso"];
 const animals = ["pato", "sapo", "jacare", "cachorro", "arara", "gato", "coelho"];
 const characters = ["girl-1", "boy-1", "girl-2", "boy-2"];
 
@@ -29,11 +29,20 @@ $(document).ready(() => {
         // --------------------------------- DRAG ---------------------------------
         $(".drag").draggable({
             cursor: "grabbing",
-            revert: function(_drop){
-                if(!_drop){
-                    return true
+            revert: function (_drop) {
+
+                if (_drop == false) {
+                    return "invalid";
+                } else {
+                    const classDragg = $(this).attr("element");
+                    const classDrop = _drop.attr("element");
+
+                    if (classDragg != classDrop) {
+                        return true;
+                    }
                 }
             },
+
             snap: ".drop",
             snapMode: "inner",
             snapTolerance: 40,
@@ -41,48 +50,55 @@ $(document).ready(() => {
             containment: ".dashboard"
         });
 
+        $(`.letters-drop`).droppable({
+            drop: function (event, ui) {
+                ui.draggable.css({ "left": "0px", "top": "0px" })
+                $(event.target).append(ui.draggable)
+            }
+        })
+
+
         _arrayWords.forEach((elements) => {
             // --------------------------------- DROP ---------------------------------
             $(`.drop_${elements}`).droppable({
-                accept: `.${elements}`,
-                // ----------- EVENT DURING DRAG -----------
-                activate: function (event, ui) {
-                },
+
                 // ----------- EVENT THAT OCCURS WHEN THE DRAG IS RELEASED -----------
                 drop: function (event, ui) {
 
-                    //  ----------- RIGHT POSITION ------------------
-                    ui.draggable.css({ "left": "0px", "top": "0px" })
-                    $(event.target).append(ui.draggable)
                     //  ---------------------------------------------
 
-                    let elementDragg = $(ui.draggable).attr('element');
-                    let elementDropp = $(this).attr('element');
-                    console.log(elementDragg);
-                    console.log(elementDropp);
+                    let elementDropp = $(this).attr("element");
+                    let elementDragg = $(ui.draggable).attr("element");
 
-                    if(elementDragg != elementDropp ){
-                        console.log("ERRADO");
+                    if (elementDragg != elementDropp) {
+                        $(this).css("background", "#FF3333")
+                            .animate({ "background": "#F6FED5" }, "slow")
+                            score >= 0? score = score - 3 : score = 0;
+
+                    } else {
+                        //  ----------- RIGHT POSITION ------------------
+                        ui.draggable.css({ "left": "0px", "top": "0px" })
+                        $(event.target).append(ui.draggable)
+
+                        //  ----------- CHANGE THE BACKGROUND -----------
+                        $(this).css("background", "#728C0B");
+                        //  ---------------------------------------------
+
+                        //  ------------------ SCORE --------------------
+                        $(".score").show()
+                            .animate({ top: '35px' }, "slow")
+                            .animate({ bottom: '100px' }, "fast")
+                            .hide(1000);
+                        //  ---------------------------------------------
+
+                        //  ----------- CHECKING THE PHASE --------------
+                        _phase == 1 ? score += 35 : score += 15;
+                        //  ---------------------------------------------
                     }
-
-                    //  ----------- CHANGE THE BACKGROUND -----------
-                    $(this).css("background", "#728C0B");
-                    //  ---------------------------------------------
-
-                    //  ----------- SCORE ---------------------------
-                    $(".score").show()
-                        .animate({ top: '35px' }, "slow")
-                        .animate({ bottom: '100px' }, "fast")
-                        .hide(1000);
-                    //  ---------------------------------------------
-
-                    //  ----------- CHECKING THE PHASE --------------
-                    _phase == 1 ? score += 30 : score += 15;
-                    //  ---------------------------------------------
 
                     //  ----------- CHECKING THE SCORE --------------
                     if (score >= 90) {
-                        score = 100;
+                        console.log(score);
                         feedbackGame.play();
                         // ------- UPDATE SCORE ---------------------
                         sendInfoUser(score, _phase);
@@ -96,6 +112,9 @@ $(document).ready(() => {
                         scoreUpdate(score);
                     };
                     //  --------------------------------------------
+                },
+                out: function (event, ui) {
+                    $(this).css("background", "#F6FED5");
                 }
                 // ---------------------------------------------------------------------
             });
@@ -117,7 +136,7 @@ $(document).ready(() => {
         $("main").append(victoryScreen);
         $("#feedback-user").append(`
              <img id="character-feedback" src="../images/${characters[nameImage]}.png" />
-        `)
+        `);
         $("#character").hide(1000);
 
         //  ----------- NEXT PHASE -----------
@@ -276,10 +295,14 @@ $(document).ready(() => {
         $.post(("/playersearch"), scorePlayer, (data) => {
             if (data != false) {
                 scorePlayer = data[0];
+                if (scorePlayer.phase == 1) {
+                    $("#block").hide();
+                    $("#lock-2").hide();
+                }
             }
         });
     };
     // -------------------------------------------------------------------------
-
+  
 });
 
