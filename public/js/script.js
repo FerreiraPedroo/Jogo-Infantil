@@ -20,6 +20,7 @@ let score = 0;
 let scorePlayer = {};
 let nameImage = 0;
 let teste;
+let scoreTotal = 0;
 
 $(document).ready(() => {
 
@@ -270,7 +271,8 @@ $(document).ready(() => {
     // -------------------------------- AJAX ----------------------------------
 
     function sendInfoUser(_score, _phase) {
-        scorePlayer.score = _score;
+        scoreTotal = _score;
+        scorePlayer.score = scoreTotal;
         scorePlayer.phase = _phase;
         console.log(scorePlayer.phase);
         $.post(("/score"), scorePlayer, (_data) => {
