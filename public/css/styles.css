@@ -108,7 +108,6 @@ main{
     height: 13%;
     border: none;
     border-radius: 40px;
-    /* cursor: pointer; */
     border-bottom: 5px solid #cc6d13;
     animation: buttonScale 1s infinite;
 }
@@ -142,6 +141,12 @@ main{
 
 #audio-effects:active, #music-theme:active{
     cursor: url("../images/cursor-1.png"), auto;
+}
+
+#ranking {
+    position: absolute;
+    bottom: 5%;
+    right: 2%;
 }
 /* -------------------------------------------------------------------------------*/
 
