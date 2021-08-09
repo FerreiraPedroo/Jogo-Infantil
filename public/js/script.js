@@ -309,6 +309,17 @@ $(document).ready(() => {
     // ----------- ranking -----------------
     $("#ranking").on("click",()=>{
         $("#overlay-ranking").css("display","flex");
+
+        $.get("/ranking", function( data ) {
+            console.log(data);
+
+            
+
+
+
+
+        });
+
     });
 
     $("#close-overlay").on("click",()=>{

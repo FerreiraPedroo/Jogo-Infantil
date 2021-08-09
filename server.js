@@ -5,6 +5,8 @@ const bodyParser = require("body-parser");
 const path = require('path');
 const { resolve } = require('path');
 const PORT = 80;
+
+
 let playerData;
 let playersList;
 let user = {}
@@ -46,7 +48,7 @@ app.post("/playersearch", (req, res) => {
     }
 })
 
-app.post('/score', (req, res) => {
+app.post("/score", (req, res) => {
     playerData = {
         name: req.body.name,
         score: req.body.score,
@@ -123,6 +125,15 @@ app.post('/score', (req, res) => {
     })
 });
 
+app.get('/ranking', (req, res) => {
+    let ranking;
+    fs.readFile('./data/players-data.json', 'utf-8', (err, data) => {
+        if (err) throw err;
+        ranking = JSON.parse(data);
+        ranking.sort((a, b) => parseInt(a["score"]) > parseInt(b["score"]) ? -1 : 1);
+        res.send(ranking.slice(0, 5));
+    });
+});
 
 app.listen(PORT, () => {
     console.log(`Servidor rodando na porta ${PORT}`)
