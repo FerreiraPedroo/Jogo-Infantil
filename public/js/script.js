@@ -52,14 +52,6 @@ $(document).ready(() => {
             containment: ".dashboard"
         });
 
-        // $(`.letters-drop`).droppable({
-        //     drop: function (event, ui) {
-        //         ui.draggable.css({ "left": "0px", "top": "0px" })
-        //         $(event.target).append(ui.draggable)
-        //     }
-        // })
-
-
         _arrayWords.forEach((elements) => {
             // --------------------------------- DROP ---------------------------------
             $(`.drop_${elements}`).droppable({
@@ -79,7 +71,6 @@ $(document).ready(() => {
                         })
                         score >= 0 ? score = score - 3 : score = 0;
                         sound(erroAudio);
-                        // sound(pointAudio);
 
                     } else {
                         sound(pointAudio);
