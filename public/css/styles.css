@@ -288,7 +288,7 @@ main{
     display: flex;
   
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: flex-start;
 }
 
 .ui-widget-content{
@@ -317,6 +317,7 @@ main{
     display: flex;
     justify-content: center;
     align-self: center;
+    margin-left:25px;
 }
 
 .letters-words img, .letters-words-none img{

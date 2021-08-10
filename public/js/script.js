@@ -1,6 +1,6 @@
-import { DragDropClass } from './letter-script-class.js'
-import { createWordList, createDragLetter } from './letter-script.js'
-import { pageInitial, gameInitial, selectPhase, phase1, phase2, victoryScreen, theEnd } from './pages.js'
+import { DragDropClass } from "./letter-script-class.js";
+import { createWordList, createDragLetter } from "./letter-script.js";
+import { pageInitial, gameInitial, selectPhase, phase1, phase2, victoryScreen, theEnd } from "./pages.js";
 
 const dragDropWords = new DragDropClass;
 let wordsSelected;
@@ -15,8 +15,12 @@ const pointAudio = "./music/points-audio.mp3";
 const erroAudio = "./music/erro-1.mp3";
 
 const music = new Audio();
+<<<<<<< Updated upstream
 musicGame.autoplay = true;
 musicGame.load();
+=======
+musicGame.play();
+>>>>>>> Stashed changes
 
 let score = 0;
 let scorePlayer = {};
@@ -44,7 +48,7 @@ $(document).ready(() => {
                     }
                 }
             },
-
+            zIndex: 100,
             snap: ".drop",
             snapMode: "inner",
             snapTolerance: 40,
@@ -52,12 +56,12 @@ $(document).ready(() => {
             containment: ".dashboard"
         });
 
-        $(`.letters-drop`).droppable({
-            drop: function (event, ui) {
-                ui.draggable.css({ "left": "0px", "top": "0px" })
-                $(event.target).append(ui.draggable)
-            }
-        })
+        // $(`.letters-drop`).droppable({
+        //     drop: function (event, ui) {
+        //         ui.draggable.css({ "left": "0px", "top": "0px" })
+        //         $(event.target).append(ui.draggable)
+        //     }
+        // })
 
 
         _arrayWords.forEach((elements) => {
@@ -73,14 +77,24 @@ $(document).ready(() => {
                     let elementDragg = $(ui.draggable).attr("element");
 
                     if (elementDragg != elementDropp) {
-                        $(this).css("background", "#FF3333")
-                            .animate({ "background": "#F6FED5" }, "slow")
+                        $(this).animate({"background-color": "red"}, 200, function(){
+                            $(this).animate({"background-color": "#F6FED5"},200)
+                            console.log(this)
+                        })
                         score >= 0 ? score = score - 3 : score = 0;
                         sound(erroAudio);
                         // sound(pointAudio);
 
                     } else {
+<<<<<<< Updated upstream
                         sound(pointAudio);
+=======
+                        //  ----------- DISABLE DROP -------------------- 
+                        $(event.target).droppable({
+                            disabled: true
+                          })
+
+>>>>>>> Stashed changes
                         //  ----------- RIGHT POSITION ------------------
                         ui.draggable.css({ "left": "0px", "top": "0px" })
                         $(event.target).append(ui.draggable)

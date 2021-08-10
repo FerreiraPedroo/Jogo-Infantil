@@ -9,7 +9,7 @@ export function createWordList(_word) {
         // ------------- variable that stores the html that will be inserted in the page.-------------
         let wordHTML = `
         <div class="words">
-              <div element="${element}" class="letters-words ui-widget-header drop_${element}" id="${element}"></div>
+              <div element="${element[0]}" class="letters-words ui-widget-header drop_${element}" id="${element}"></div>
         `;
         for (let w = 1; w < element.length; w++) {
             // ------------- creates the HTML of the letters of the word -------------
@@ -28,12 +28,13 @@ export function createWordList(_word) {
 
 export function createDragLetter(_letters, _names) {
     let letters = _letters;
+    letters.sort();
     let letterHTML = "";
 
     for (let l = 0; l < letters.length; l++) {
             letterHTML += `
         <div class="letters letters-drop">
-            <img element="${_names[l]}" class="letters-object drag ${_names[l]}" src="./images/letter-${letters[l]}.png" alt="">
+            <img element="${_letters[l]}" class="letters-object drag ${_letters[l]}" src="./images/letter-${letters[l]}.png" alt="">
         </div>
         `;
         console.log(l+ " " +letters[l] + " de " + _names[l]);
