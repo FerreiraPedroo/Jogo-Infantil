@@ -37,18 +37,14 @@ export function createDragLetter(_letters, _names) {
             <img element="${_letters[l]}" class="letters-object drag ${_letters[l]}" src="./images/letter-${letters[l]}.png" alt="">
         </div>
         `;
-        console.log(l+ " " +letters[l] + " de " + _names[l]);
     }
     $("#letters-space").append(letterHTML);
 }
 
 export function createdAnimal(_animals) {
     const animals = _animals;
-    console.log("ANIMALS: ", animals)
-    //let beginning = Math.floor((Math.random() * 10));
 
     for (let a = 0; a< animals.length; a++) {
-        console.log(animals[a])
         $(".figures").append(`
         <div class="figures-animals">
                 <img element="${animals[a]}" class="drag ${animals[a]}" src="./images/${animals[a]}.png" />

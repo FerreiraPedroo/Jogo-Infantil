@@ -67,7 +67,6 @@ $(document).ready(() => {
                     if (elementDragg != elementDropp) {
                         $(this).animate({ "background-color": "red" }, 200, function () {
                             $(this).animate({ "background-color": "#F6FED5" }, 200)
-                            console.log(this)
                         })
                         score >= 0 ? score = score - 3 : score = 0;
                         sound(erroAudio);
@@ -98,7 +97,6 @@ $(document).ready(() => {
 
                     //  ----------- CHECKING THE SCORE --------------
                     if (score >= 90) {
-                        console.log(score);
                         feedbackGame.play();
                         // ------- UPDATE SCORE ---------------------
                         sendInfoUser(score, _phase);
@@ -278,7 +276,7 @@ $(document).ready(() => {
         scoreTotal += _score;
         scorePlayer.score = scoreTotal;
         scorePlayer.phase = _phase;
-        console.log(scorePlayer.phase);
+        
         $.post(("/score"), scorePlayer, (_data) => {
         });
     };
