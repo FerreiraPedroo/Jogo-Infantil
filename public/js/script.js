@@ -18,6 +18,7 @@ const music = new Audio();
 musicGame.autoplay = true;
 musicGame.load();
 musicGame.volume = 0.2;
+feedbackGame.volume = 0.3;
 
 let score = 0;
 let scorePlayer = {};
@@ -132,6 +133,28 @@ $(document).ready(() => {
         });
     };
     // ---------------------------------------------------------------------------------------
+    // --------------------------------- VERIFY UNLOCK PHASE ---------------------------------
+    function verifyUnlockPhase() {
+        console.log(scorePlayer.phase)
+        if (scorePlayer.phase == undefined) {
+            $("main").html(selectPhase);
+            $("#game-initial").append(`
+              <img id="character-choice" src="./images/${characters[nameImage]}-cut.png">
+             `);
+            $("#block").hide();
+        } else if (scorePlayer.phase == 1) {
+            $("main").html(selectPhase);
+            $("#game-initial").append(`
+              <img id="character-choice" src="./images/${characters[nameImage]}-cut.png">
+             `);
+            $("#block").hide();
+            $("#lock-2").hide();
+        } else if (scorePlayer.phase == 2) {
+            $("main").html(theEnd);
+        }
+    };
+    // ---------------------------------------------------------------------------------------
+
 
 
     // --------------------------------- CREATE WIN SCREEN ---------------------------------
@@ -145,16 +168,7 @@ $(document).ready(() => {
         //  ----------- NEXT PHASE -----------
         $("body").on("click", "#next", () => {
             score = 0;
-            if (scorePlayer.phase == 1) {
-                $("main").html(selectPhase);
-                $("#game-initial").append(`
-                  <img id="character-choice" src="./images/${characters[nameImage]}-cut.png">
-                 `);
-                $("#block").hide();
-                $("#lock-2").hide();
-            } else {
-                $("main").html(theEnd);
-            }
+            verifyUnlockPhase()
             countPage = 2;
         });
         //  ----------------------------------
@@ -252,25 +266,11 @@ $(document).ready(() => {
                 break;
             case 3:
                 countPage = 2;
-                $("main").html(selectPhase);
-                if (scorePlayer.phase == 1) {
-                    $("#game-initial").append(`
-                <img id="character-choice" src="./images/${characters[nameImage]}-cut.png">
-               `);
-                    $("#block").hide();
-                    $("#lock-2").hide();
-                }
+                verifyUnlockPhase()
                 break;
             case 4:
                 countPage = 2;
-                $("main").html(selectPhase);
-                if (scorePlayer.phase == 1) {
-                    $("#game-initial").append(`
-                <img id="character-choice" src="./images/${characters[nameImage]}-cut.png">
-               `);
-                    $("#block").hide();
-                    $("#lock-2").hide();
-                }
+                verifyUnlockPhase()
                 break;
 
         }
