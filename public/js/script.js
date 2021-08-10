@@ -73,6 +73,7 @@ $(document).ready(() => {
                         sound(erroAudio);
 
                     } else {
+                        $(this).droppable( "disable" );
                         sound(pointAudio);
                         //  ----------- RIGHT POSITION ------------------
                         ui.draggable.css({ "left": "0px", "top": "0px" })
