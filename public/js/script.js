@@ -253,12 +253,26 @@ $(document).ready(() => {
             case 3:
                 countPage = 2;
                 $("main").html(selectPhase);
+                if (scorePlayer.phase == 1) {
+                    $("#game-initial").append(`
+                <img id="character-choice" src="./images/${characters[nameImage]}-cut.png">
+               `);
+                    $("#block").hide();
+                    $("#lock-2").hide();
+                }
                 break;
             case 4:
                 countPage = 2;
                 $("main").html(selectPhase);
+                if (scorePlayer.phase == 1) {
+                    $("#game-initial").append(`
+                <img id="character-choice" src="./images/${characters[nameImage]}-cut.png">
+               `);
+                    $("#block").hide();
+                    $("#lock-2").hide();
+                }
                 break;
-            
+
         }
         // $("main").html(pageInitial);
         score = 0;
