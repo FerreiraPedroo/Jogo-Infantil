@@ -15,12 +15,8 @@ const pointAudio = "./music/points-audio.mp3";
 const erroAudio = "./music/erro-1.mp3";
 
 const music = new Audio();
-<<<<<<< Updated upstream
 musicGame.autoplay = true;
 musicGame.load();
-=======
-musicGame.play();
->>>>>>> Stashed changes
 
 let score = 0;
 let scorePlayer = {};
@@ -86,15 +82,7 @@ $(document).ready(() => {
                         // sound(pointAudio);
 
                     } else {
-<<<<<<< Updated upstream
                         sound(pointAudio);
-=======
-                        //  ----------- DISABLE DROP -------------------- 
-                        $(event.target).droppable({
-                            disabled: true
-                          })
-
->>>>>>> Stashed changes
                         //  ----------- RIGHT POSITION ------------------
                         ui.draggable.css({ "left": "0px", "top": "0px" })
                         $(event.target).append(ui.draggable)
