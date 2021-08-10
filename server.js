@@ -35,7 +35,7 @@ app.get('/', (req, res, next) => {
 app.post("/playersearch", (req, res) => {
     user.name = req.body.name;
     fs.readFile('./data/players-data.json', 'utf-8', (err, data) => {
-        if (err) throw err; // retirar 
+        if (err) throw err; // retirar : usar try-catch
         verifyUser(data);
     });
 
