@@ -182,6 +182,8 @@ $(document).ready(() => {
         dataUser();
         $("main").html(gameInitial);
         countPage = 1;
+        $("#overlay-ranking").css("display", "none");
+        $("#players-space").html("");
     });
     // ---------------------------------------------------------------------------------------------
 
