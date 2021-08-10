@@ -307,17 +307,14 @@ $(document).ready(() => {
         $.post(("/playersearch"), scorePlayer, (data) => {
             if (data != false) {
                 scorePlayer = data[0];
-                // if (scorePlayer.phase == 1) {
-                //     $("#block").hide();
-                //     $("#lock-2").hide();
-                // }
+                
             }
         });
     };
     // -------------------------------------------------------------------------
 
     // ----------- ranking -----------------
-    $("#ranking").on("click", () => {
+    $("main").on("click", "#ranking", () => {
         $("#overlay-ranking").css("display", "flex");
 
         $.get("/ranking", function (data) {

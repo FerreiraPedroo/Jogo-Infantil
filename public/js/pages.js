@@ -5,6 +5,7 @@ export const pageInitial = `
             </div>
             <input id="name-user" type="text" placeholder="Nome">
             <button id="start-game">JOGAR</button>
+            <img width="80px" id="ranking" src="./images/ranking.png" />
             </div>
 `
 
