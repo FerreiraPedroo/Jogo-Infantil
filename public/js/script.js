@@ -65,16 +65,16 @@ $(document).ready(() => {
                     let elementDragg = $(ui.draggable).attr("element");
 
                     if (elementDragg != elementDropp) {
-                        $(this).animate({"background-color": "red"}, 200, function(){
-                            $(this).animate({"background-color": "#F6FED5"},200)
+                        $(this).animate({ "background-color": "red" }, 200, function () {
+                            $(this).animate({ "background-color": "#F6FED5" }, 200)
                             console.log(this)
                         })
                         score >= 0 ? score = score - 3 : score = 0;
                         sound(erroAudio);
 
                     } else {
-                        $(this).droppable( "disable" );
-                        $(ui.draggable).draggable( "disable" );
+                        $(this).droppable("disable");
+                        $(ui.draggable).draggable("disable");
                         sound(pointAudio);
                         //  ----------- RIGHT POSITION ------------------
                         ui.draggable.css({ "left": "0px", "top": "0px" })
@@ -295,15 +295,22 @@ $(document).ready(() => {
     // ----------------------------- SEARCH USER ------------------------------
 
     function dataUser() {
-        scorePlayer = {
-            name: `${$("#name-user").val()}`
-        };
-        $.post(("/playersearch"), scorePlayer, (data) => {
-            if (data != false) {
-                scorePlayer = data[0];
-                
-            }
-        });
+        let namePlayer = $("#name-user").val();
+
+        if (namePlayer == "") {
+            return
+        } else {
+            scorePlayer = {
+                name: `${namePlayer}`
+            };
+
+            $.post(("/playersearch"), scorePlayer, (data) => {
+                if (data != false) {
+                    scorePlayer = data[0];
+
+                }
+            });
+        }
     };
     // -------------------------------------------------------------------------
 
@@ -312,9 +319,9 @@ $(document).ready(() => {
         $("#overlay-ranking").css("display", "flex");
 
         $.get("/ranking", function (data) {
-            
+
             data.forEach((playerUser) => {
-                if(playerUser.name == ""){
+                if (playerUser.name == "") {
                     playerUser.name = "Desconhecido"
                 };
                 $("#players-space").append(
