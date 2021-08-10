@@ -317,7 +317,7 @@ main{
     display: flex;
     justify-content: center;
     align-self: center;
-    margin-left:25px;
+    margin-left:15px;
 }
 
 .letters-words img, .letters-words-none img{
@@ -345,7 +345,9 @@ main{
     position: absolute;
     height: 240px;
     right:1%;
-    top: 61%;
+    /*top: 61%;*/
+    bottom: 1%;
+    
 }
 #coin{
     position: absolute;
