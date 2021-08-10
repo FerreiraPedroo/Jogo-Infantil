@@ -546,8 +546,8 @@ main{
 }
 
 .figures-animals{
-    width: 25%;
-    height: 25%;
+    width: 30%;
+    height: 30%;
     display: flex;
     border-radius: 100px;
     background: #F6FED5;
