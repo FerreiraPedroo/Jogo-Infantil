@@ -23,6 +23,7 @@ let score = 0;
 let scorePlayer = {};
 let nameImage = 0;
 let scoreTotal = 0;
+let countPage = 0;
 
 $(document).ready(() => {
 
@@ -33,13 +34,14 @@ $(document).ready(() => {
         $(".drag").draggable({
             cursor: "grabbing",
             revert: function (_drop) {
-
+                // if the drag is not placed in a valid location 
                 if (_drop == false) {
                     return "invalid";
                 } else {
                     const classDragg = $(this).attr("element");
                     const classDrop = _drop.attr("element");
 
+                    // if they are different
                     if (classDragg != classDrop) {
                         return true;
                     }
@@ -62,11 +64,13 @@ $(document).ready(() => {
 
                     //  ---------------------------------------------
 
+                    // take "element" of drag and drop
                     let elementDropp = $(this).attr("element");
                     let elementDragg = $(ui.draggable).attr("element");
 
+                    // if drag is different from drop
                     if (elementDragg != elementDropp) {
-                        $(this).animate({ "background-color": "red" }, 200, function () {
+                        $(this).animate({ "background-color": "#FF3333" }, 200, function () {
                             $(this).animate({ "background-color": "#F6FED5" }, 200)
                         })
                         score >= 0 ? score = score - 3 : score = 0;
@@ -92,7 +96,7 @@ $(document).ready(() => {
                         //  ---------------------------------------------
 
                         //  ----------- CHECKING THE PHASE --------------
-                        _phase == 1 ? score += 35 : score += 15;
+                        _phase == 1 ? score += 35 : score += 17;
                         //  ---------------------------------------------
                     }
 
@@ -151,7 +155,7 @@ $(document).ready(() => {
             } else {
                 $("main").html(theEnd);
             }
-
+            countPage = 2;
         });
         //  ----------------------------------
     };
@@ -163,6 +167,7 @@ $(document).ready(() => {
         musicGame.loop = true;
         dataUser();
         $("main").html(gameInitial);
+        countPage = 1;
     });
     // ---------------------------------------------------------------------------------------------
 
@@ -196,6 +201,7 @@ $(document).ready(() => {
             $("#block").hide();
             $("#lock-2").hide();
         }
+        countPage = 2;
 
     });
     // --------------------------------------------------------------------------------------------
@@ -214,6 +220,7 @@ $(document).ready(() => {
         createDragLetter(wordsSelected[1], wordsSelected[0]);
         createWordList(wordsSelected[0]);
         createDropAndDrag(wordsSelected[0], 1);
+        countPage = 3;
     });
 
     // ---------------------------------------------------------------------------------------------
@@ -228,12 +235,32 @@ $(document).ready(() => {
 
         createdAnimal(wordsSelected)
         createDropAndDrag(wordsSelected, 2);
+        countPage = 4;
     });
     // ---------------------------------------------------------------------------------------------
 
     // ---------------------------------  BACK FUNCTION ----------------------------------
     $("main").on("click", ".back", () => {
-        $("main").html(pageInitial);
+        switch (countPage) {
+            case 1:
+                countPage = 0;
+                $("main").html(pageInitial);
+                break;
+            case 2:
+                countPage = 1;
+                $("main").html(gameInitial);
+                break;
+            case 3:
+                countPage = 2;
+                $("main").html(selectPhase);
+                break;
+            case 4:
+                countPage = 2;
+                $("main").html(selectPhase);
+                break;
+            
+        }
+        // $("main").html(pageInitial);
         score = 0;
         scoreUpdate(score);
 
