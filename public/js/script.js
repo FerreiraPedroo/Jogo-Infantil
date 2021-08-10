@@ -17,6 +17,7 @@ const erroAudio = "./music/erro-1.mp3";
 const music = new Audio();
 musicGame.autoplay = true;
 musicGame.load();
+musicGame.volume = 0.2;
 
 let score = 0;
 let scorePlayer = {};
@@ -276,7 +277,7 @@ $(document).ready(() => {
         scoreTotal += _score;
         scorePlayer.score = scoreTotal;
         scorePlayer.phase = _phase;
-        
+
         $.post(("/score"), scorePlayer, (_data) => {
         });
     };
@@ -286,6 +287,8 @@ $(document).ready(() => {
     // -------------------------------- AUDIO ----------------------------------
     function sound(_music) {
         music.src = _music;
+        music.volume = 0.2;
+
         music.play();
     };
     // -------------------------------------------------------------------------
