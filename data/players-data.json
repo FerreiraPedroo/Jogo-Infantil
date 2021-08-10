@@ -1,1 +1,55 @@
-[{"id":1,"name":"Rebeca","score":100,"phase":1},{"id":2,"name":"Antônio","score":0,"phase":0},{"name":"lu","score":"100","id":3},{"name":"luan","score":"100","phase":"1","id":4},{"name":"","score":"96","phase":"1","id":5},{"name":"JOGADOR","score":"100","phase":"1","id":6},{"name":"Layssa","score":"96","phase":"1","id":7},{"name":"teste","score":"99","phase":"2","id":8},{"name":"NUMEROMAIOR","score":"195","phase":"2","id":9}]
+[
+    {
+        "id": 1,
+        "name": "Rebeca",
+        "score": 100,
+        "phase": 1
+    },
+    {
+        "id": 2,
+        "name": "Antônio",
+        "score": 0,
+        "phase": 0
+    },
+    {
+        "name": "lu",
+        "score": "100",
+        "id": 3
+    },
+    {
+        "name": "luan",
+        "score": "100",
+        "phase": "1",
+        "id": 4
+    },
+    {
+        "name": "",
+        "score": "96",
+        "phase": "1",
+        "id": 5
+    },
+    {
+        "name": "JOGADOR",
+        "score": "100",
+        "phase": "1",
+        "id": 6
+    },
+    {
+        "name": "Layssa",
+        "score": "96",
+        "phase": "1",
+        "id": 7
+    },
+    {
+        "name": "teste",
+        "score": "99",
+        "phase": "2",
+        "id": 8
+    },
+    {
+        "name": "King",
+        "score": "195",
+        "phase": "2",
+        "id": 9
+    }
+]

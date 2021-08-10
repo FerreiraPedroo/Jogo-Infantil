@@ -188,7 +188,7 @@ main{
 
 #players-space div{
     display: flex;
-    width: 100%;
+    width: 250px;
     justify-content: space-between;
     align-items:center ;
     height: 44px;
