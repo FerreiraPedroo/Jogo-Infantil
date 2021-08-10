@@ -14,17 +14,7 @@ export const phase1 = `
             <p class="instruction">AJUDE A COMPLETAR A PALAVRA!</p>
             <div class="dashboard">
                 <div id="letters-space">
-                  <!--  <div class="letters">
-                        <img element="vaca" class="letters-object drag vaca" src="./images/letter-V.png" alt="">
-                    </div>
-                    <div id="letters-middle">
-                        <img element="abelha" class="letters-object ui-widget-content draggable drag abelha" src="./images/letter-A.png"
-                            alt="">
-                    </div>
-                    <div class="letters">
-                        <img element="navio" class="letters-object drag navio" src="./images/letter-N.png" alt="">
-                    </div>
-                    -->
+                 
                 </div>
                 <div id="words-space">
                 </div>
@@ -44,28 +34,6 @@ export const phase2 = `
             <p class="instruction">AJUDE A ENCONTRAR O ANIMAL!</p>
             <div class="container">
                 <div class="figures">
-                 <!--   <div class="figures-animals">
-                        <img element="pato" class="drag pato" src="./images/pato.png" />
-                    </div>
-                    <div class="figures-animals">
-                        <img element="gato" class="drag gato" src="./images/gato.png" style="width: 80%;" />
-                    </div>
-                    <div class="figures-animals">
-                        <img element="cachorro" class="drag cachorro" src="./images/cachorro.png" />
-                    </div>
-                    <div class="figures-animals ">
-                        <img element="coelho" class="drag coelho" src="./images/coelho.png" />
-                    </div>
-                    <div class="figures-animals ">
-                        <img element="jacare" class="drag jacare" src="./images/jacare.png" />
-                    </div>
-                    <div class="figures-animals">
-                        <img element="sapo"class="drag sapo" src="./images/sapo.png" />
-                    </div>
-                    <div class="figures-animals">
-                        <img element="arara"class="drag arara" src="./images/arara.png" />
-                    </div>
-                    -->
                 </div>
                 <div class="space-animals">
                     <div id="space-one">

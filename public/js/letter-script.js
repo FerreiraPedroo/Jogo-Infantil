@@ -1,6 +1,6 @@
 //------------- the function receives by parameter an array with the amount of words that will be inserted in the html. -------------
 export function createWordList(_word) {
-    const words = _word
+    const words = _word;
 
     // ------------- receive array with words -------------
     const wordList = words;
@@ -18,13 +18,13 @@ export function createWordList(_word) {
                             <img element="${element}" src="./images/letter-${element[w]}.png" alt="">
                  </div>
                 `;
-        }
+        };
         wordHTML += `<img class="object" src="./images/${element}.png" alt=""></img>`;
         wordHTML += `</div>`;
         //------------- insert words in html. -------------
         $("#words-space").append(wordHTML);
     });
-}
+};
 
 export function createDragLetter(_letters, _names) {
     let letters = _letters;
@@ -37,9 +37,9 @@ export function createDragLetter(_letters, _names) {
             <img element="${_letters[l]}" class="letters-object drag ${_letters[l]}" src="./images/letter-${letters[l]}.png" alt="">
         </div>
         `;
-    }
+    };
     $("#letters-space").append(letterHTML);
-}
+};
 
 export function createdAnimal(_animals) {
     const animals = _animals;
@@ -49,6 +49,6 @@ export function createdAnimal(_animals) {
         <div class="figures-animals">
                 <img element="${animals[a]}" class="drag ${animals[a]}" src="./images/${animals[a]}.png" />
         </div>
-        `)
-    }
-}
+        `);
+    };
+};

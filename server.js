@@ -7,7 +7,6 @@ const { resolve } = require('path');
 const PORT = 80;
 
 
-let playerData;
 let playersList;
 let user = {}
 let dataUser = [];
@@ -36,20 +35,20 @@ app.get('/', (req, res, next) => {
 app.post("/playersearch", (req, res) => {
     user.name = req.body.name;
     fs.readFile('./data/players-data.json', 'utf-8', (err, data) => {
-        if (err) throw err
-        verifyUser(data)
+        if (err) throw err; // retirar 
+        verifyUser(data);
     });
 
     function verifyUser(_data) {
-        dataUser = JSON.parse(_data)
+        dataUser = JSON.parse(_data);
         userData = dataUser.filter((player) => { return player.name == user.name; });
-        if (userData.length == 0) { userData = false }
-        res.send(userData)
+        if (userData.length == 0) { userData = false };
+        res.send(userData);
     }
 })
 
 app.post("/score", (req, res) => {
-    playerData = {
+    const playerData = {
         name: req.body.name,
         score: req.body.score,
         phase: req.body.phase
@@ -106,7 +105,7 @@ app.get('/ranking', (req, res) => {
 });
 
 app.listen(PORT, () => {
-    console.log(`Servidor rodando na porta ${PORT}`)
+    console.log(`Servidor rodando na porta ${PORT}`);
 });
 
 

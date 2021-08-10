@@ -28,13 +28,13 @@ export class DragDropClass {
         let randomLetterQtd = 0;
 
         do {
-
+            // fazer um splice da letra selecionada
             if (this.#letterListSelected[randomLetterQtd] == undefined && randomLetterQtd < this.#wordListQtd) {
                 this.#letterListSelected[randomLetterQtd] = this.#wordListSelected[randomLetterQtd][0];
-                console.log(this.#wordListSelected)
-                console.log(this.#letterListSelected[randomLetterQtd])
+                console.log(this.#wordListSelected);
+                console.log(this.#letterListSelected[randomLetterQtd]);
                 console.log("(3 <) Pos: ", randomLetterQtd, "LS: ", this.#letterListSelected[randomLetterQtd]);
-                randomLetterQtd++                
+                randomLetterQtd++;
             }
 
             randomLetterPosition = Math.floor(Math.random() * this.#letterTotal);
@@ -42,13 +42,13 @@ export class DragDropClass {
                 let letterSelected = this.#letterAlphabet[Math.floor(Math.random() * this.#letterAlphabet.length)];
                 if (this.#letterListSelected.indexOf(letterSelected) == -1) {
                     this.#letterListSelected[randomLetterPosition] = letterSelected;
-                    randomLetterQtd++
+                    randomLetterQtd++;
                     console.log("(3 >=) Pos: ", randomLetterPosition, "LS: ", this.#letterListSelected[randomLetterPosition]);
                 }
             }
         }
         while (randomLetterQtd < this.#letterTotal);
-        console.log(this.#letterListSelected)
+        console.log(this.#letterListSelected);
         return this.#letterListSelected;
     }
     // return random wordlist(Array), no repeat word
@@ -65,9 +65,9 @@ export class DragDropClass {
                 if (this.#wordListSelected.indexOf(wordSelected) == -1) {
                     this.#wordListSelected[randomWordPosition] = wordSelected;
                     randomWordQtd++
-                }
+                };
 
-            }
+            };
         }
         while (randomWordQtd < this.#wordListQtd);
         return this.#wordListSelected;
@@ -106,16 +106,11 @@ export class DragDropClass {
     }
 
     getWordListSelected(_qtd) {
-        //this.#wordListQtd = _qtd;
-        //console.log(this.#wordList)
 
         _qtd == undefined ? this.#wordListQtd = this.#wordList.length : this.#wordListQtd = this.#wordList.length > _qtd ? _qtd : this.#wordList.length;
         this.#letterTotal = (this.#wordListQtd + this.#letterExtra) <= this.#letterAlphabet.length ? (this.#wordListQtd + this.#letterExtra) : 25;
         this.randomWordListSelect();
         this.randomLetterList();
-
-        //console.table(this.#wordListSelected)
-        //console.table(this.#letterListSelected)
 
         return [this.#wordListSelected, this.#letterListSelected];
     }
