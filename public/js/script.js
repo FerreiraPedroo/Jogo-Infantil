@@ -73,7 +73,7 @@ $(document).ready(() => {
                     if (elementDragg != elementDropp) {
                         $(this).animate({ "background-color": "#FF3333" }, 200, function () {
                             $(this).animate({ "background-color": "#F6FED5" }, 200)
-                        })
+                        });
                         score >= 0 ? score = score - 3 : score = 0;
                         sound(erroAudio);
 
@@ -83,7 +83,7 @@ $(document).ready(() => {
                         sound(pointAudio);
                         //  ----------- RIGHT POSITION ------------------
                         ui.draggable.css({ "left": "0px", "top": "0px" })
-                        $(event.target).append(ui.draggable)
+                        $(event.target).append(ui.draggable);
 
                         //  ----------- CHANGE THE BACKGROUND -----------
                         $(this).css("background", "#728C0B");
@@ -168,7 +168,7 @@ $(document).ready(() => {
         //  ----------- NEXT PHASE -----------
         $("body").on("click", "#next", () => {
             score = 0;
-            verifyUnlockPhase()
+            verifyUnlockPhase();
             countPage = 2;
         });
         //  ----------------------------------
@@ -249,7 +249,7 @@ $(document).ready(() => {
         dragDropWords.setWordList = animals;
         wordsSelected = dragDropWords.getWordListSelected()[0];
 
-        createdAnimal(wordsSelected)
+        createdAnimal(wordsSelected);
         createDropAndDrag(wordsSelected, 2);
         countPage = 4;
     });
@@ -268,15 +268,14 @@ $(document).ready(() => {
                 break;
             case 3:
                 countPage = 2;
-                verifyUnlockPhase()
+                verifyUnlockPhase();
                 break;
             case 4:
                 countPage = 2;
-                verifyUnlockPhase()
+                verifyUnlockPhase();
                 break;
 
         }
-        // $("main").html(pageInitial);
         score = 0;
         scoreUpdate(score);
 
@@ -352,9 +351,9 @@ $(document).ready(() => {
                 if (data != false) {
                     scorePlayer = data[0];
 
-                }
+                };
             });
-        }
+        };
     };
     // -------------------------------------------------------------------------
 
