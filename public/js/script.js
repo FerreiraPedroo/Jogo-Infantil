@@ -1,5 +1,5 @@
 import { DragDropClass } from "./letter-script-class.js";
-import { createWordList, createDragLetter } from "./letter-script.js";
+import { createWordList, createDragLetter, createdAnimal } from "./letter-script.js";
 import { pageInitial, gameInitial, selectPhase, phase1, phase2, victoryScreen, theEnd } from "./pages.js";
 
 const dragDropWords = new DragDropClass;
@@ -74,6 +74,7 @@ $(document).ready(() => {
 
                     } else {
                         $(this).droppable( "disable" );
+                        $(ui.draggable).draggable( "disable" );
                         sound(pointAudio);
                         //  ----------- RIGHT POSITION ------------------
                         ui.draggable.css({ "left": "0px", "top": "0px" })
@@ -226,6 +227,7 @@ $(document).ready(() => {
         dragDropWords.setWordList = animals;
         wordsSelected = dragDropWords.getWordListSelected()[0];
 
+        createdAnimal(wordsSelected)
         createDropAndDrag(wordsSelected, 2);
     });
     // ---------------------------------------------------------------------------------------------

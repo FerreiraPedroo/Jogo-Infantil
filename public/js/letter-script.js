@@ -44,15 +44,14 @@ export function createDragLetter(_letters, _names) {
 
 export function createdAnimal(_animals) {
     const animals = _animals;
-    let beginning = Math.floor((Math.random() * 10));
+    console.log("ANIMALS: ", animals)
+    //let beginning = Math.floor((Math.random() * 10));
 
-    for (beginning; beginning < (beginning + 7); beginning++) {
-        if (beginning > animals.length) {
-            beginning = 0;
-        }
-        $("figures").append(`
+    for (let a = 0; a< animals.length; a++) {
+        console.log(animals[a])
+        $(".figures").append(`
         <div class="figures-animals">
-                <img element="${animals[beginning]}" class="drag ${animals[beginning]}" src="./images/${animals[beginning]}.png" />
+                <img element="${animals[a]}" class="drag ${animals[a]}" src="./images/${animals[a]}.png" />
         </div>
         `)
     }
