@@ -31,6 +31,7 @@ Jogo infantil utilizando drag and drop do JQuery.
 ![fim](https://user-images.githubusercontent.com/69046604/137670737-9e3f8b5a-9809-4375-8afa-f68e338b8a7e.PNG)
 ## Equipe
   - [Pedro Henrique](https://github.com/FerreiraPedroo)
+  - [Layssa Lima](https://github.com/Layssaa)
 
 ## Principais tecnologias usadas.
 <div>
